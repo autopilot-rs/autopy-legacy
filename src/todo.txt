@@ -1,3 +1,0 @@
-To add:
-bmp.find_bitmap_rotated(bmp, step, tolerance=0.0) => ((x, y), angle)
-bmp.rotate_bitmap(angle) => None
