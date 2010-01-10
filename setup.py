@@ -37,7 +37,7 @@ def create_package_dir(package_name, docstring, module_names):
                     "\n".join(module_names)
 
     # Only write file if it has been changed.
-    init_path = os.path.join(dir_path, '/__init__.py')
+    init_path = os.path.join(dir_path, '__init__.py')
     if not os.path.exists(init_path):
         update_file = True
     else:
