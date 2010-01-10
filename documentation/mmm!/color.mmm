@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mmm type="module">
+<name>color</name>
+<summary>pydroid module for converting color formats</summary>
+<description>This module provides routines for converting between the color format (hexadecimal) used by pydroid methods and other, more readable, formats (e.g., RGB tuples).</description>
+<section name="Functions">
+	<function name="hex_to_rgb">
+		<syntax>hex_to_rgb(hex)</syntax>
+		<description>Returns a tuple <mono>(r, g, b)</mono> of the RGB <keyword>integer</keyword> values equivalent to the given RGB hexadecimal value. <var>r</var>, <var>g</var>, and <var>b</var> are in the range 0 - 255.</description>
+	</function>
+	<function name="rgb_to_hex">
+		<syntax>rgb_to_hex(r, g, b)</syntax>
+		<description>Returns hexadecimal value of given RGB tuple. <var>r</var>, <var>g</var>, and <var>b</var> should be in the range 0 - 255.</description>
+	</function>
+</section>
+</mmm>

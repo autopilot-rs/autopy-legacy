@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mmm type="module">
+<name>screen</name>
+<summary>pydroid module for working with the screen</summary>
+<description>This module contains functions for obtaining attributes about the screen.</description>
+<section name="Functions">
+	<function name="get_size">
+		<syntax>get_size()</syntax>
+		<description>Returns a tuple <mono>(width, height)</mono> of the size of the main screen.</description>
+	</function>
+	<function name="point_visible">
+		<syntax>point_visible(x, y)</syntax>
+		<description>Returns <const>True</const> if the given point is inside the main screen boundaries.</description>
+	</function>
+	<function name="get_color">
+		<syntax>get_color(x, y)</syntax>
+		<description>Returns hexadecimal value describing the RGB color at the given point.
+
+Essentially equivalent to: 
+<bcode>
+rect = ((x, y), (1, 1))
+bitmap.capture_screen_portion(rect).get_color(0, 0)
+</bcode>
+
+               only more efficient/convenient.</description>
+		<exceptions>
+			<exception name="OSError">the system calls were unsuccessful</exception>
+			<exception name="ValueError">the <keyword>rect</keyword> is out of bounds</exception>
+		</exceptions>
+	</function>
+</section>
+</mmm>
