@@ -81,7 +81,7 @@ Pydroid is a simple toolkit for automating and scripting repetitive tasks, espec
 
 #### Binary Installers
 
-Pydroid binaries are currently available for [Leopard](http://s3.amazonaws.com/pydroid/pydroid-leopard.pkg), [Snow Leopard](http://s3.amazonaws.com/pydroid/pydroid-snowleopard.pkg), and [Windows XP](http://s3.amazonaws.com/pydroid/pydroid-setup.exe). For other platforms, you will have to compile it yourself &#8212; fortunately, this is a relatively easy task.
+Pydroid binaries are currently available for [Leopard](http://cloud.github.com/downloads/msanders/pydroid/pydroid-leopard.pkg), [Snow Leopard](http://cloud.github.com/downloads/msanders/pydroid/pydroid-snowleopard.pkg), and [Windows](http://cloud.github.com/downloads/msanders/pydroid/pydroid-setup.exe). For other platforms, you will have to compile it yourself &#8212; fortunately, this is a relatively easy task.
 
 #### Installing from Source
 
