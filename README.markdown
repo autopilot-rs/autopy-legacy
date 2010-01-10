@@ -5,21 +5,21 @@ by Michael Sanders
 
 ## Outline
 
-* [Introduction](#pydroid-intro)
-	- [What is Pydroid?](#what-is-pydroid)
-	- [Why use Pydroid?](#why-pydroid)
-	- [What else is Pydroid?](#what-else-pydroid)
-* [Getting Started](#pydroid-getting-started)
-	- [Requirements](#pydroid-requirements)
-	- [Installation](#pydroid-installation)
-	- [Hello World](#pydroid-helloworld)
-* [Tutorials](#pydroid-tutorials)
-	- [Controlling the Mouse](#pydroid-mouse-tutorial)
-	- [Working with Bitmaps](#pydroid-bitmap-tutorial)
-* [License](#pydroid-license)
-	- [Summary](#pydroid-license-summary)
-	- [MIT License](#pydroid-mit-license)
-	- [The FreeBSD Documentation License](#pydroid-freebsd-license)
+* Introduction
+	- What is Pydroid?
+	- Why use Pydroid?
+	- What else is Pydroid?
+* Getting Started
+	- Requirements
+	- Installation
+	- Hello World
+* Tutorials
+	- Controlling the Mouse
+	- Working with Bitmaps
+* License
+	- Summary
+	- MIT License
+	- The FreeBSD Documentation License
 
 <div id="pydroid-intro"></div>
 
@@ -66,7 +66,7 @@ Pydroid is a simple toolkit for automating and scripting repetitive tasks, espec
 * Python 2.5+
 * For Mac OS X:
 	- zlib
-	- libpng (see (here)[http://ethan.tira-thompson.org/Mac_OS_X_Ports.html] for a simple installer)
+	- libpng (see [here](http://ethan.tira-thompson.org/Mac_OS_X_Ports.html) for a simple installer)
 	- Mac OS 10.5 or later (earlier versions may work, but they are as-of-now untested)
 * For Windows:
 	- libpng & zlib (included in both the installer and the source archive)
@@ -118,7 +118,7 @@ The following is the full source for a "hello world" script in pydroid. Running 
 
 ### Controlling the Mouse
 
-Pydroid includes a number of functions for controlling the mouse. For a full list, consult the (API Reference)[http://msanders.com/pydroid/documentation/api-reference/mouse.html]. This short tutorial, however, only gives you a taste of two: `pydroid.mouse.move()` and `pydroid.mouse.smooth_move()`. These functions do exactly what they seem; for instance, to immediately "teleport" the mouse to the top left corner of the screen:
+Pydroid includes a number of functions for controlling the mouse. For a full list, consult the [API Reference](http://msanders.com/pydroid/documentation/api-reference/mouse.html). This short tutorial, however, only gives you a taste of two: `pydroid.mouse.move()` and `pydroid.mouse.smooth_move()`. These functions do exactly what they seem; for instance, to immediately "teleport" the mouse to the top left corner of the screen:
 
 	>>> import pydroid
 	>>> pydroid.mouse.move(1, 1)
@@ -232,7 +232,7 @@ Aside from analyzing a bitmap's pixel data, the main use for loading a bitmap is
 
 As I hope you can see, these functions are enormously useful and have a number of practical values.
 
-Hope you enjoy using pydroid! For a more in depth overview, I've attempted to make the (API Reference)[http://msanders.com/pydroid/documentation/api-reference/mouse.html] as complete and approachable as possible.
+Hope you enjoy using pydroid! For a more in depth overview, I've attempted to make the [API Reference](http://msanders.com/pydroid/documentation/api-reference/mouse.html) as complete and approachable as possible.
 
 <div id="pydroid-license"></div>
 
