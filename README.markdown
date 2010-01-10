@@ -16,6 +16,7 @@ by Michael Sanders
 * Tutorials
 	- Controlling the Mouse
 	- Working with Bitmaps
+* Closing & API Reference
 * License
 	- Summary
 	- MIT License
@@ -230,9 +231,11 @@ Aside from analyzing a bitmap's pixel data, the main use for loading a bitmap is
 
 	where_is_the_monkey_i_say()
 
+## Closing & API Reference
+
 As I hope you can see, these functions are enormously useful and have a number of practical values.
 
-Hope you enjoy using pydroid! For a more in depth overview, I've attempted to make the [API Reference](http://msanders.com/pydroid/documentation/api-reference/mouse.html) as complete and approachable as possible.
+Hope you enjoy using pydroid! For a more in depth overview, I've attempted to make the [API Reference](http://msanders.com/pydroid/documentation/api-reference) as complete and approachable as possible.
 
 <div id="pydroid-license"></div>
 
