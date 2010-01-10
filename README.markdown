@@ -107,7 +107,7 @@ The following is the full source for a "hello world" script in pydroid. Running 
 	import pydroid
 	def hello_there_world():
 	    pydroid.alert.alert("Hello, world")
-	    hello_there_world()
+	hello_there_world()
 
 ![Cross platform alerts](http://s3.amazonaws.com/pydroid/alerts.png)
 
