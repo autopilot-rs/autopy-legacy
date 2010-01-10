@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mmm type="module">
+<name>bitmap</name>
+<summary>pydroid module for working with bitmaps</summary>
+<description>This module defines the class <mono>Bitmap</mono> for accessing bitmaps and searching for bitmaps on-screen.
+
+It also defines functions for taking screenshots of the screen.</description>
+<section name="Functions">
+	<function name="capture_screen">
+		<syntax>capture_screen(rect=None)</syntax>
+		<description>Returns a screengrab of the given portion of the main display, or the entire display if <var><keyword>rect</keyword></var> is <const>None</const>.</description>
+		<exceptions>
+			<exception name="OSError">the screengrab was unsuccessful</exception>
+			<exception name="ValueError">the <keyword>rect</keyword> is out of bounds</exception>
+		</exceptions>
+	</function>
+</section>
+<section name="Bitmap object methods">
+	<function name="Bitmap.open">
+		<syntax>Bitmap.open(filepath, format)</syntax>
+		<description>Opens image at absolute filepath in the given format. The image type is determined from the filename if possible, unless <var>format</var> is given.</description>
+		<exceptions>
+			<exception name="IOError">the image could not be opened</exception>
+		</exceptions>
+	</function>
+	<function name="Bitmap.from_string">
+		<syntax>Bitmap.from_string(string)</syntax>
+		<description>Creates bitmap from string created by <mono>bmp.to_string()</mono>.</description>
+		<exceptions>
+			<exception name="ValueError">the given string was invalid</exception>
+		</exceptions>
+	</function>
+	<function name="bmp.point_in_bounds" class="NO">
+		<syntax>bmp.point_in_bounds(x, y)</syntax>
+		<description>Returns <const>True</const> if <mono>x &lt; bmp.width</mono> and <mono>y &lt; bmp.height</mono>, or <const>False</const> if not.</description>
+	</function>
+	<function name="bmp.copy_to_pboard" class="NO">
+		<syntax>bmp.copy_to_pboard()</syntax>
+		<description>Copies image to pasteboard. Currently only supported on Windows and Mac OS X.</description>
+		<exceptions>
+			<exception name="OSError">the image could not be copied</exception>
+		</exceptions>
+	</function>
+	<function name="bmp.save" class="NO">
+		<syntax>bmp.save(filepath, [format])</syntax>
+		<description>Saves image to absolute filepath in the given format. The image type is determined from the filename if possible, unless <var>format</var> is given. Note that if the file already exists, it WILL be overwritten. Check yourself first if you do not desire this.</description>
+		<exceptions>
+			<exception name="IOError">the image could not be saved</exception>
+		</exceptions>
+	</function>
+	<function name="bmp.to_string" class="NO">
+		<syntax>bmp.to_string()</syntax>
+		<description>Returns compressed, printable string representing bitmap, to be used with <mono>Bitmap.from_string()</mono>.</description>
+		<exceptions>
+			<exception name="IOError">the string could not be created</exception>
+		</exceptions>
+	</function>
+	<function name="bmp.get_color" class="NO">
+		<syntax>bmp.get_color(x, y)</syntax>
+		<description>Returns hexadecimal value describing the RGB color at the given point.</description>
+		<exceptions>
+			<exception name="ValueError">the point out of bounds</exception>
+		</exceptions>
+	</function>
+	<function name="bmp.find_color" class="NO">
+		<syntax>bmp.find_color(color, tolerance=0.0, rect=None)</syntax>
+		<description>Attempts to find color inside <var><keyword>rect</keyword></var> in <var>bmp</var>; returns coordinates if found, or <const>None</const> if not. If <var><keyword>rect</keyword></var> is <const>None</const>, the entire image is searched.</description>
+	</function>
+	<function name="bmp.find_every_color" class="NO">
+		<syntax>bmp.find_every_color(color, tolerance=0.0, rect=None)</syntax>
+		<description>Returns list of all coordinates inside <var><keyword>rect</keyword></var> in <var>bmp</var> matching <var>color</var>. If <var><keyword>rect</keyword></var> is <const>None</const>, the entire image is searched.</description>
+	</function>
+	<function name="bmp.count_of_color" class="NO">
+		<syntax>bmp.count_of_color(color, tolerance=0.0, rect=None)</syntax>
+		<description>Returns count of color in bitmap. Functionally equivalent to: 
+<bcode>len(find_every_color(color, tolerance, rect))</bcode></description>
+	</function>
+	<function name="bmp.find_bitmap" class="NO">
+		<syntax>bmp.find_bitmap(needle, tolerance=0.0, rect=None)</syntax>
+		<description>Searches for <var>needle</var> in <var>bmp</var>. Returns tuple <mono>(x, y)</mono> of position if found, or <const>None</const> if not.</description>
+	</function>
+	<function name="bmp.find_every_bitmap" class="NO">
+		<syntax>bmp.find_every_bitmap(needle, tolerance=0.0, rect=None)</syntax>
+		<description>Returns list of all <mono>(x, y)</mono> coordinates where <var>needle</var> occurs in <var>bmp</var>.</description>
+	</function>
+	<function name="bmp.count_of_bitmap" class="NO">
+		<syntax>bmp.count_of_bitmap(needle, tolerance=0.0, rect=None)</syntax>
+		<description>Returns count of occurrences of <var>needle</var> in <var>haystack</var>. Functionally equivalent to: 
+<bcode>len(bmp.find_every_bitmap(needle, tolerance))</bcode></description>
+	</function>
+</section>
+</mmm>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mmm type="index">
+<name>pydroid</name>
+<summary>API Reference</summary>
+<description>
+	A simple toolkit for automating and scripting repetitive tasks, especially those involving a GUI, with Python.
+</description>
+<section name="Table of Contents">
+	<module name="alert" />
+	<module name="bitmap" />
+	<module name="color" />
+	<module name="key" />
+	<module name="mouse" />
+	<module name="screen" />
+</section>
+</mmm>
+

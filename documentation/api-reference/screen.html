@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=us-ascii" />
+    <meta name="description" content="pydroid module for working with the screen" />
+    <title>
+      screen &mdash; pydroid module for working with the screen
+    </title>
+    <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
+  </head>
+  <body>
+    <div id="header">
+      <a href="#">Pydroid Documentation</a> &raquo; <a href="index.html">API Reference</a>
+      <div id="nav">
+        <a href="mouse.html">previous</a> | <a href="index.html">index</a>
+      </div>
+    </div>
+    <div id="container">
+      <div id="sidebar">
+        <h3>
+          Table of Contents
+        </h3>
+        <ul>
+          <li>
+            <a href="#module-screen">screen &mdash; pydroid module for working with the screen</a>
+            <ul>
+              <li>
+                <a href="#Functions">Functions</a>
+                <ul>
+                  <li>
+                    <a href="#get_size">get_size</a>
+                  </li>
+                  <li>
+                    <a href="#point_visible">point_visible</a>
+                  </li>
+                  <li>
+                    <a href="#get_color">get_color</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="main">
+        <h1 id="module-screen">
+          screen &mdash; pydroid module for working with the screen<a href="#module-screen" class="headerlink" title="Permalink to this headline">&para;</a>
+        </h1>
+        <div class="description">
+          <p>
+            This module contains functions for obtaining attributes about the screen.
+          </p>
+        </div>
+        <h2 id="Functions">
+          Functions<a href="#Functions" class="headerlink" title="Permalink to this headline">&para;</a>
+        </h2>
+        <dl class="section">
+          <dt class="function" id="get_size">
+            <tt class="class-name">screen.</tt><tt class="name">get_size</tt><big>(</big><big>)</big><a href="#get_size" class="headerlink" title="Permalink to this headline">&para;</a>
+          </dt>
+          <dd>
+            <p>
+              Returns a tuple <tt class="mono">(width, height)</tt> of the size of the main screen.
+            </p>
+          </dd>
+          <dt class="function" id="point_visible">
+            <tt class="class-name">screen.</tt><tt class="name">point_visible</tt><big>(</big><span class="funcarg">x</span>, <span class="funcarg">y</span><big>)</big><a href="#point_visible" class="headerlink" title="Permalink to this headline">&para;</a>
+          </dt>
+          <dd>
+            <p>
+              Returns <tt class="const">True</tt> if the given point is inside the main screen boundaries.
+            </p>
+          </dd>
+          <dt class="function" id="get_color">
+            <tt class="class-name">screen.</tt><tt class="name">get_color</tt><big>(</big><span class="funcarg">x</span>, <span class="funcarg">y</span><big>)</big><a href="#get_color" class="headerlink" title="Permalink to this headline">&para;</a>
+          </dt>
+          <dd>
+            <p>
+              Returns hexadecimal value describing the RGB color at the given point.
+            </p>
+            <p>
+              Essentially equivalent to:
+            </p>
+            <pre>
+rect = ((x, y), (1, 1))
+bitmap.capture_screen_portion(rect).get_color(0, 0)
+</pre>
+            <p>
+              only more efficient/convenient.
+            </p>
+            <div class="exceptions-header">
+              Exceptions:
+            </div>
+            <ul class="exceptions">
+              <li>
+                <tt class="var">OSError</tt> is thrown if the system calls were unsuccessful.
+              </li>
+              <li>
+                <tt class="var">ValueError</tt> is thrown if the <tt class="keyword">rect</tt> is out of bounds.
+              </li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </body>
+</html>

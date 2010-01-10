@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mmm type="module">
+<name>key</name>
+<summary>pydroid module for working with the keyboard</summary>
+<description>This module contains various functions for controlling the keyboard.</description>
+<section name="Functions">
+	<function name="toggle">
+		<syntax>toggle(key, down_or_up, [modifiers])</syntax>
+		<description>Holds down the given key or keycode if <var>down_or_up</var> is <const>True</const>, or releases it if not. Integer keycodes and modifiers should be taken from module constants (e.g., <var>key.K_DELETE</var> or <var>key.MOD_META</var>). If the given key is a character, it is automatically converted to a keycode corresponding to the current keyboard layout.
+
+To hold down more than one modifier at a time, bitwise-OR them, e.g.:
+<bcode>toggle('a', True, key.MOD_SHIFT | key.MOD_ALT)</bcode></description>
+	</function>
+	<function name="tap">
+		<syntax>tap(key, [modifiers])</syntax>
+		<description>Convenience wrapper around <mono>toggle()</mono> that holds down and then releases the given key and modifiers.</description>
+	</function>
+	<function name="type_string">
+		<syntax>type_string(string, wpm=0)</syntax>
+		<description>Attempts to simulate typing a string at the given WPM, or as fast as possible if the WPM is 0.</description>
+	</function>
+</section>
+<section name="Constants">
+	<description>
+		The following is an exhaustive list of constants used by this module in order to input non-printable keys across platforms. Most should be self-explanatory.
+	</description>
+	<constant name="MOD_NONE">
+		<value>0</value>
+		<description>Null modifier (meaning none are to be pressed).</description>
+	</constant>
+	<constant name="MOD_META">
+		<description>Equivalent to the command key modifier on Mac OS X, the Windows key modifier on Windows, or the meta key modifiers on X11.</description>
+	</constant>
+	<constant name="MOD_ALT">
+		<description>Alt key modifier.</description>
+	</constant>
+	<constant name="MOD_CONTROL">
+		<description>Control key modifier.</description>
+	</constant>
+	<constant name="MOD_SHIFT">
+		<description>Shift key modifier.</description>
+	</constant>
+	<constant name="K_BACKSPACE"></constant>
+	<constant name="K_DELETE"></constant>
+	<constant name="K_RETURN"></constant>
+	<constant name="K_ESCAPE"></constant>
+	<constant name="K_UP"></constant>
+	<constant name="K_DOWN"></constant>
+	<constant name="K_RIGHT"></constant>
+	<constant name="K_LEFT"></constant>
+	<constant name="K_HOME"></constant>
+	<constant name="K_END"></constant>
+	<constant name="K_PAGEUP"></constant>
+	<constant name="K_PAGEDOWN"></constant>
+	<constant name="K_F1"></constant>
+	<constant name="K_F2"></constant>
+	<constant name="K_F3"></constant>
+	<constant name="K_F4"></constant>
+	<constant name="K_F5"></constant>
+	<constant name="K_F6"></constant>
+	<constant name="K_F7"></constant>
+	<constant name="K_F8"></constant>
+	<constant name="K_F9"></constant>
+	<constant name="K_F10"></constant>
+	<constant name="K_F11"></constant>
+	<constant name="K_F12"></constant>
+	<constant name="K_META"></constant>
+	<constant name="K_ALT"></constant>
+	<constant name="K_CONTROL"></constant>
+	<constant name="K_SHIFT"></constant>
+	<constant name="K_CAPSLOCK"></constant>
+</section>
+</mmm>

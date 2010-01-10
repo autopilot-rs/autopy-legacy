@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mmm type="module">
+<name>mouse</name>
+<summary>pydroid module for working with the mouse</summary>
+<description>This module contains functions for getting the current state of and controlling the mouse cursor.
+
+Unless otherwise stated, coordinates are those of a screen coordinate system, where the origin is at the top left.</description>
+<section name="Functions">
+	<function name="move">
+		<syntax>move(x, y)</syntax>
+		<description>Moves the mouse to the given <mono>(x, y)</mono> coordinate.</description>
+		<exceptions>
+			<exception name="ValueError">the point is out of index</exception>
+		</exceptions>
+	</function>
+	<function name="smooth_move">
+		<syntax>smooth_move(x, y)</syntax>
+		<description>Smoothly moves the mouse to the given <mono>(x, y)</mono> coordinate in a straight line.</description>
+		<exceptions>
+			<exception name="ValueError">the point is out of index</exception>
+		</exceptions>
+	</function>
+	<function name="get_pos">
+		<syntax>get_pos()</syntax>
+		<description>Returns a tuple <mono>(x, y)</mono> of the current mouse position.</description>
+	</function>
+	<function name="toggle">
+		<syntax>toggle(down, button=LEFT_BUTTON)</syntax>
+		<description>Holds down or releases the given mouse button in the current position. <var>button</var> can be <var>LEFT_BUTTON</var>, <var>RIGHT_BUTTON</var>, or <var>CENTER_BUTTON</var>. If no button is given, the left button is defaulted to.</description>
+		<exceptions>
+			<exception name="ValueError">the mouse button is invalid</exception>
+		</exceptions>
+	</function>
+	<function name="click">
+		<syntax>click(button=LEFT_BUTTON)</syntax>
+		<description>Convenience wrapper around <mono>toggle()</mono> that holds down and then releases the given mouse button.</description>
+	</function>
+</section>
+<section name="Constants">
+	<description>
+		The following is a list of constants used by this module in order to specify mouse buttons.
+	</description>
+	<constant name="LEFT_BUTTON">
+		<description>Left mouse button.</description>
+	</constant>
+	<constant name="RIGHT_BUTTON">
+		<description>Right mouse button.</description>
+	</constant>
+	<constant name="CENTER_BUTTON">
+		<description>Middle mouse button.</description>
+	</constant>
+</section>
+</mmm>
