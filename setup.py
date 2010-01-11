@@ -228,7 +228,7 @@ else:
     DATA_FILES = []
 
 setup(name=PACKAGE_NAME,
-      version='0.42',
+      version='0.43 beta',
       author='Michael Sanders',
       author_email='msanders42+autopy [at] gmail [dot] com',
       description=PACKAGE_DESCRIPTION,
