@@ -313,7 +313,7 @@ def html_from_mmm(mmm_attrs, add_header_func=None):
                           ('xml:lang', 'en')]) # <html>
     doc.push_tag('head') # <head>
     doc.insert_tag('meta', [('http-equiv', 'content-type'),
-                           ('content', 'text/html; charset=utf-8')],
+                           ('content', 'text/html; charsetutf-8')],
                    autoclose=True) # <meta content-type="..." />
 
     summary = mmm_attrs.get('summary', '')
@@ -382,7 +382,7 @@ def html_from_mmm(mmm_attrs, add_header_func=None):
     doc.pop_tag() # </body>
     doc.pop_tag() # </html>
 
-    document, errors = tidy_document(doc.str)
+    document, errors = tidy_document(doc.str, {'char-encoding': 'utf8'})
     return document
 
 def add_header(doc, next_file='', prev_file=''):
