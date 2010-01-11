@@ -81,7 +81,7 @@ AutoPy is a simple toolkit for automating and scripting repetitive tasks, especi
 
 #### Binary Installers
 
-AutoPy installers are currently available for [Leopard](http://cloud.github.com/downloads/msanders/autopy/autopy-leopard.pkg), [Snow Leopard](http://cloud.github.com/downloads/msanders/autopy/autopy-snowleopard.pkg), and [Windows](http://cloud.github.com/downloads/msanders/autopy/autopy-setup.exe). For other platforms, you will have to compile it yourself &#8212; fortunately, this is a relatively easy task.
+AutoPy installers are currently available for [Leopard](http://s3.amazonaws.com/autopy/autopy-leopard.pkg), [Snow Leopard](http://s3.amazonaws.com/autopy/autopy-snowleopard.pkg), and [Windows](http://s3.amazonaws.com/autopy/autopy-setup.exe). For other platforms, you will have to compile it yourself &#8212; fortunately, this is a relatively easy task.
 
 #### Installing from Source
 
