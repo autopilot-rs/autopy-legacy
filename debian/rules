@@ -1,0 +1,10 @@
+#!/usr/bin/make -f
+
+DEB_PYTHON_SYSTEM=pysupport
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/python-distutils.mk
+
+# Add here any variable or target overrides you need.
+
+DEB_DESTDIR=$(CURDIR)/debian/python-autopy

@@ -1,0 +1,9 @@
+Document: autopy
+Title: Autopy API documentation
+Author: Michael Sanders <msanders42@gmail.com>
+Abstract: A simple toolkit for automating and scripting repetitive tasks, especially those involving a GUI, with Python.
+Section: Programming/Python
+
+Format: HTML
+Index: /usr/share/doc/python-autopy-doc/html/index.html
+Files: /usr/share/doc/python-autopy-doc/html/*
