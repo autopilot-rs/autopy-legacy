@@ -102,7 +102,7 @@ Install it:
 
 ### Hello World
 
-The following is the full source for a "hello world" script in autopy. Running this code will cause an alert dialog to appear on every major platform:
+The following is the full source for a "hello world" script in autopy. Running this code will cause an alert dialog to appear on every major platform (make sure you `cd` out of the build directory before trying this or it may fail on an `ImportError` due to Python's relative imports):
 
 	import autopy
 	def hello_there_world():
