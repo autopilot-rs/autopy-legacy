@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mmm type="module">
 <name>color</name>
-<summary>pydroid module for converting color formats</summary>
-<description>This module provides routines for converting between the color format (hexadecimal) used by pydroid methods and other, more readable, formats (e.g., RGB tuples).</description>
+<summary>autopy module for converting color formats</summary>
+<description>This module provides routines for converting between the color format (hexadecimal) used by autopy methods and other, more readable, formats (e.g., RGB tuples).</description>
 <section name="Functions">
 	<function name="hex_to_rgb">
 		<syntax>hex_to_rgb(hex)</syntax>

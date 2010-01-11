@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mmm type="module">
 <name>screen</name>
-<summary>pydroid module for working with the screen</summary>
+<summary>autopy module for working with the screen</summary>
 <description>This module contains functions for obtaining attributes about the screen.</description>
 <section name="Functions">
 	<function name="get_size">

@@ -357,7 +357,7 @@ def update_mmm_files(dir, modules):
 
 def main(src_dir, out_dir):
     comments = get_comments(braceglob(os.path.join(src_dir,
-                                      '{pydroid-*-module,py-*-class}*.{c,h}')))
+                                      '{autopy-*-module,py-*-class}*.{c,h}')))
     modules = get_module_attributes(comments)
     files_written = update_mmm_files(out_dir, modules)
 

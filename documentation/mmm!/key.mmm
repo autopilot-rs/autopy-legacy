@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mmm type="module">
 <name>key</name>
-<summary>pydroid module for working with the keyboard</summary>
+<summary>autopy module for working with the keyboard</summary>
 <description>This module contains various functions for controlling the keyboard.</description>
 <section name="Functions">
 	<function name="toggle">

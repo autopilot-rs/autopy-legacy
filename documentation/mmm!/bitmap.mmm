@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mmm type="module">
 <name>bitmap</name>
-<summary>pydroid module for working with bitmaps</summary>
+<summary>autopy module for working with bitmaps</summary>
 <description>This module defines the class <mono>Bitmap</mono> for accessing bitmaps and searching for bitmaps on-screen.
 
 It also defines functions for taking screenshots of the screen.</description>

@@ -1,4 +1,4 @@
-Pydroid Introduction and Tutorial
+AutoPy Introduction and Tutorial
 =================================
 
 by Michael Sanders
@@ -6,9 +6,9 @@ by Michael Sanders
 ## Outline
 
 * Introduction
-	- What is Pydroid?
-	- Why use Pydroid?
-	- What else is Pydroid?
+	- What is AutoPy?
+	- Why use AutoPy?
+	- What else is AutoPy?
 * Getting Started
 	- Requirements
 	- Installation
@@ -22,19 +22,19 @@ by Michael Sanders
 	- MIT License
 	- The FreeBSD Documentation License
 
-<div id="pydroid-intro"></div>
+<div id="autopy-intro"></div>
 
 ## Introduction
 
-<div id="what-is-pydroid"></div>
+<div id="what-is-autopy"></div>
 
-### What is Pydroid?
+### What is AutoPy?
 
-Pydroid is a simple toolkit for automating and scripting repetitive tasks, especially those involving a GUI, with Python. It includes functions for controlling the mouse and keyboard, finding colors and bitmaps on-screen, as well as displaying cross-platform alerts.
+AutoPy is a simple toolkit for automating and scripting repetitive tasks, especially those involving a GUI, with Python. It includes functions for controlling the mouse and keyboard, finding colors and bitmaps on-screen, as well as displaying cross-platform alerts.
 
-<div id="why-pydroid"></div>
+<div id="why-autopy"></div>
 
-### Why use Pydroid?
+### Why use AutoPy?
 
 * Testing a GUI application for bugs and edge cases
 	- You might think your app is stable, but what happens if you press that button _5000 times_?
@@ -43,24 +43,24 @@ Pydroid is a simple toolkit for automating and scripting repetitive tasks, espec
 * Freaking out friends and family
 	- Well maybe this isn't really a practical use, _but_...
 
-<div id="what-else-pydroid"></div>
+<div id="what-else-autopy"></div>
 
-### What else is Pydroid?
+### What else is AutoPy?
 
 * Portable
 	- Works on Mac OS X, Windows, and X11.
 * Fast
 	- Written in pure ANSI C.
 * Simple
-	- Pydroid is designed as a _toolkit_, not a _framework_ -- it doesn't get in your way. At the same time, convenience functions are provided where useful.
+	- AutoPy is designed as a _toolkit_, not a _framework_ -- it doesn't get in your way. At the same time, convenience functions are provided where useful.
 * Easy
-	- Pydroid is designed to be simple and easy-to-understand, both for the end user and the implementor; that is, both the public API and the internals are straightforward and well-documented. It should be easy to pick up, and easy to modify if you need.
+	- AutoPy is designed to be simple and easy-to-understand, both for the end user and the implementor; that is, both the public API and the internals are straightforward and well-documented. It should be easy to pick up, and easy to modify if you need.
 
-<div id="pydroid-getting-started"></div>
+<div id="autopy-getting-started"></div>
 
 ## Getting Started
 
-<div id="pydroid-requirements"></div>
+<div id="autopy-requirements"></div>
 
 ### Requirements
 
@@ -75,66 +75,66 @@ Pydroid is a simple toolkit for automating and scripting repetitive tasks, espec
 	- libpng & zlib
 	- X11 with the XTest extension (also known as the Xtst library)
 
-<div id="pydroid-installation"></div>
+<div id="autopy-installation"></div>
 
 ### Installation
 
 #### Binary Installers
 
-Pydroid binaries are currently available for [Leopard](http://cloud.github.com/downloads/msanders/pydroid/pydroid-leopard.pkg), [Snow Leopard](http://cloud.github.com/downloads/msanders/pydroid/pydroid-snowleopard.pkg), and [Windows](http://cloud.github.com/downloads/msanders/pydroid/pydroid-setup.exe). For other platforms, you will have to compile it yourself &#8212; fortunately, this is a relatively easy task.
+AutoPy installers are currently available for [Leopard](http://cloud.github.com/downloads/msanders/autopy/autopy-leopard.pkg), [Snow Leopard](http://cloud.github.com/downloads/msanders/autopy/autopy-snowleopard.pkg), and [Windows](http://cloud.github.com/downloads/msanders/autopy/autopy-setup.exe). For other platforms, you will have to compile it yourself &#8212; fortunately, this is a relatively easy task.
 
 #### Installing from Source
 
 Check out the latest code:
 
-	$ git clone git://github.com/msanders/pydroid.git
+	$ git clone git://github.com/msanders/autopy.git
 
 Compile it:
 
-	$ cd pydroid
+	$ cd autopy
 	$ python setup.py build
 
 Install it:
 
 	# python setup.py install
 
-<div id="pydroid-helloworld"></div>
+<div id="autopy-helloworld"></div>
 
 ### Hello World
 
-The following is the full source for a "hello world" script in pydroid. Running this code will cause an alert dialog to appear on every major platform:
+The following is the full source for a "hello world" script in autopy. Running this code will cause an alert dialog to appear on every major platform:
 
-	import pydroid
+	import autopy
 	def hello_there_world():
-	    pydroid.alert.alert("Hello, world")
+	    autopy.alert.alert("Hello, world")
 	hello_there_world()
 
-![Cross platform alerts](http://s3.amazonaws.com/pydroid/alerts.png)
+![Cross platform alerts](http://s3.amazonaws.com/autopy/alerts.png)
 
-<div id="pydroid-tutorials"></div>
+<div id="autopy-tutorials"></div>
 
 ## Tutorials
 
-<div id="pydroid-mouse-tutorial"></div>
+<div id="autopy-mouse-tutorial"></div>
 
 ### Controlling the Mouse
 
-Pydroid includes a number of functions for controlling the mouse. For a full list, consult the [API Reference](http://msanders.com/pydroid/documentation/api-reference/mouse.html). This short tutorial, however, only gives you a taste of two: `pydroid.mouse.move()` and `pydroid.mouse.smooth_move()`. These functions do exactly what they seem; for instance, to immediately "teleport" the mouse to the top left corner of the screen:
+AutoPy includes a number of functions for controlling the mouse. For a full list, consult the [API Reference](http://msanders.com/autopy/documentation/api-reference/mouse.html). This short tutorial, however, only gives you a taste of two: `autopy.mouse.move()` and `autopy.mouse.smooth_move()`. These functions do exactly what they seem; for instance, to immediately "teleport" the mouse to the top left corner of the screen:
 
-	>>> import pydroid
-	>>> pydroid.mouse.move(1, 1)
+	>>> import autopy
+	>>> autopy.mouse.move(1, 1)
 
 
-Note that you are able to use the module `pydroid.mouse` despite only importing `pydroid`. This is because the grand `pydroid` module imports all of the modules in the pydroid package, so you don't have to.
+Note that you are able to use the module `autopy.mouse` despite only importing `autopy`. This is because the grand `autopy` module imports all of the modules in the autopy package, so you don't have to.
 
 To move the mouse a bit more realistically, we could use:
 
-	>>> import pydroid
-	>>> pydroid.mouse.smooth_move(1, 1)
+	>>> import autopy
+	>>> autopy.mouse.smooth_move(1, 1)
 
 Even better, we could write our own function to move the mouse across the screen as a sine wave:
 
-	import pydroid
+	import autopy
 	import math
 	import time
 	import random
@@ -145,71 +145,71 @@ Even better, we could write our own function to move the mouse across the screen
 		Moves the mouse in a sine wave from the left edge of
 		the screen to the right.
 		"""
-		width, height = pydroid.screen.get_size()
+		width, height = autopy.screen.get_size()
 		height /= 2
 		height -= 10 # Stay in the screen bounds.
 
 		for x in xrange(width):
 			y = int(height * math.sin((TWO_PI * x) / width) + height)
-			pydroid.mouse.move(x, y)
+			autopy.mouse.move(x, y)
 			time.sleep(random.uniform(0.001, 0.003))
 
 	sine_mouse_wave()
 
-<a href="http://msanders.com/pydroid/sine-move-mouse.html"><img src="http://s3.amazonaws.com/pydroid/sine-move-mouse-thumbnail.jpg" alt="Demonstration video"/></a>
+<a href="http://msanders.com/autopy/sine-move-mouse.html"><img src="http://s3.amazonaws.com/autopy/sine-move-mouse-thumbnail.jpg" alt="Demonstration video"/></a>
 
 Pretty cool, huh?
 
-<div id="pydroid-bitmap-tutorial"></div>
+<div id="autopy-bitmap-tutorial"></div>
 
 ### Working with Bitmaps
 
-All of pydroid's bitmap routines can be found in the function `pydroid.bitmap` (more specifically, most are found in the class `pydroid.bitmap.Bitmap`). A useful way to explore pydroid is to use Python's built-in `help()` function, for example in `help(pydroid.bitmap.Bitmap)`. All of pydroid's functions are documented with descriptive docstrings, so this should show a nice overview.
+All of autopy's bitmap routines can be found in the function `autopy.bitmap` (more specifically, most are found in the class `autopy.bitmap.Bitmap`). A useful way to explore autopy is to use Python's built-in `help()` function, for example in `help(autopy.bitmap.Bitmap)`. All of autopy's functions are documented with descriptive docstrings, so this should show a nice overview.
 
-There are currently three ways to load a bitmap in pydroid: 1.) by taking a screenshot, 2.) by loading a file, or 3.) by parsing a string. The first is probably the most obvious, so I'll start by showing that:
+There are currently three ways to load a bitmap in autopy: 1.) by taking a screenshot, 2.) by loading a file, or 3.) by parsing a string. The first is probably the most obvious, so I'll start by showing that:
 
-	>>> import pydroid
-	>>> pydroid.bitmap.capture_screen()
+	>>> import autopy
+	>>> autopy.bitmap.capture_screen()
 	<Bitmap object at 0x12278>
 
 This takes a screenshot of the main screen, copies it to a bitmap, displays its memory address, and then immediately destroys it. Let's do something more useful, like look at its pixel data:
 
-	>>> import pydroid
-	>>> pydroid.bitmap.capture_screen().get_color(1, 1)
+	>>> import autopy
+	>>> autopy.bitmap.capture_screen().get_color(1, 1)
 	15921906
 
-Pydroid uses a coordinate system with its origin starting at the top-left, so this statement should return the color of pixel at the top-left corner of the screen. The number shown looks a bit unrecognizable, though, but we can fix that:
+AutoPy uses a coordinate system with its origin starting at the top-left, so this statement should return the color of pixel at the top-left corner of the screen. The number shown looks a bit unrecognizable, though, but we can fix that:
 
-	>>> import pydroid
-	>>> hex(pydroid.bitmap.capture_screen().get_color(1, 1))
+	>>> import autopy
+	>>> hex(autopy.bitmap.capture_screen().get_color(1, 1))
 	'0xF2F2F2'
 
 This is obviously an RGB hexadecimal value, identical those used in HTML and CSS. We could also have done: 
 
-	>>> import pydroid
-	>>> pydroid.color.hex_to_rgb(pydroid.screen.get_color(1, 1))
+	>>> import autopy
+	>>> autopy.color.hex_to_rgb(autopy.screen.get_color(1, 1))
 	(242, 242, 242)
 
-which converts that hex value to a tuple of `(r, g, b)` values. (Note that `pydroid.screen.get_color()`, used here, is merely a more convenient and efficient version of `pydroid.bitmap.capture_screen().get_color()`.)
+which converts that hex value to a tuple of `(r, g, b)` values. (Note that `autopy.screen.get_color()`, used here, is merely a more convenient and efficient version of `autopy.bitmap.capture_screen().get_color()`.)
 
 To save the screen capture to a file, we can use:
 
-	>>> import pydroid
-	>>> pydroid.bitmap.capture_screen().save('screengrab.png')
+	>>> import autopy
+	>>> autopy.bitmap.capture_screen().save('screengrab.png')
 
-The filetype is either parsed automatically from the filename, or given as an optional parameter. Pydroid currently only supports the BMP and PNG filetypes, though, as those are really all that are practical for its purpose.
+The filetype is either parsed automatically from the filename, or given as an optional parameter. AutoPy currently only supports the BMP and PNG filetypes, though, as those are really all that are practical for its purpose.
 
 Loading a bitmap is done essentially the same way, only from a class method:
 
-	>>> import pydroid
-	>>> pydroid.bitmap.Bitmap.open('i-am-a-monkey-and-i-like-it.png')
+	>>> import autopy
+	>>> autopy.bitmap.Bitmap.open('i-am-a-monkey-and-i-like-it.png')
 	<Bitmap object at 0x1001d5378>
 
 Sometimes it is desirable to keep a short script free of any outside dependencies. In the case of bitmaps, this can be accomplished with the `to_string()` and `from_string()` methods:
 
-	>>> pydroid.bitmap.Bitmap.open('foo.png').to_string()
+	>>> autopy.bitmap.Bitmap.open('foo.png').to_string()
 	'b2,3,eNpjYGD4f/MwBDGA2QBcMwpt'
-	>>> pydroid.bitmap.Bitmap.from_string('b2,3,eNpjYGD4f/'
+	>>> autopy.bitmap.Bitmap.from_string('b2,3,eNpjYGD4f/'
 									      'MwBDGA2QBcMwpt')
 	<Bitmap object at 0x12278>
 
@@ -217,11 +217,11 @@ This is not recommended for large bitmaps (a screenshot, for instance, is obviou
 
 Aside from analyzing a bitmap's pixel data, the main use for loading a bitmap is finding it on the screen or inside another bitmap. For example, the following prints the coordinates of the first monkey found in a barrel of monkeys (scanned from left to right, top to bottom):
 
-	import pydroid
+	import autopy
 	def where_is_the_monkey_i_say():
 		"""Look for the monkey. Tell me if you found it."""
-		monkey = pydroid.bitmap.Bitmap.open('monkey.png')
-		barrel = pydroid.bitmap.Bitmap.open('barrel.png')
+		monkey = autopy.bitmap.Bitmap.open('monkey.png')
+		barrel = autopy.bitmap.Bitmap.open('barrel.png')
 
 		pos = barrel.find_bitmap(monkey)
 		if pos:
@@ -235,23 +235,23 @@ As I hope you can see, these functions are enormously useful and have a number o
 
 ## Closing & API Reference
 
-Hope you enjoy using pydroid! For a more in depth overview, I've attempted to make the [API Reference](http://msanders.com/pydroid/documentation/api-reference) as complete and approachable as possible.
+Hope you enjoy using autopy! For a more in depth overview, I've attempted to make the [API Reference](http://msanders.com/autopy/documentation/api-reference) as complete and approachable as possible.
 
-<div id="pydroid-license"></div>
+<div id="autopy-license"></div>
 
 ## License
 
-<div id="pydroid-license-summary"></div>
+<div id="autopy-license-summary"></div>
 
 ### Summary
 
-Pydroid (the software) is licensed under the terms of the MIT license.
+AutoPy (the software) is licensed under the terms of the MIT license.
 
-The documentation for Pydroid is licensed under the terms of the FreeBSD Documentation License.
+The documentation for AutoPy is licensed under the terms of the FreeBSD Documentation License.
 
 These licenses are both very liberal and permit nearly anything, including using the code in other projects (as long as credit is given).
 
-<div id="pydroid-mit-license"></div>
+<div id="autopy-mit-license"></div>
 
 ### MIT License
 
@@ -263,7 +263,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-<div id="pydroid-freebsd-license"></div>
+<div id="autopy-freebsd-license"></div>
 
 ### The FreeBSD Documentation License
 
