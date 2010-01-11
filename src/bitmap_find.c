@@ -169,7 +169,7 @@ MMPointArrayRef findAllBitmapInRect(MMBitmapRef needle, MMBitmapRef haystack,
 
 	initBadShiftTable(&badShiftTable, needle);
 	while (findBitmapInRectAt(needle, haystack, &point, rect,
-	                            tolerance, point, &badShiftTable) == 0) {
+	                          tolerance, point, &badShiftTable) == 0) {
 		const size_t scanWidth = (haystack->width - needle->width) + 1;
 		MMPointArrayAppendPoint(pointArray, point);
 		ITER_NEXT_POINT(point, scanWidth, 0);

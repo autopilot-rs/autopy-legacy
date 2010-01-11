@@ -21,7 +21,7 @@ static PyObject *alert_alert(PyObject *self, PyObject *args, PyObject *kwds);
 static PyMethodDef AlertMethods[] = {
 	{"alert", (PyCFunction)alert_alert, METH_VARARGS | METH_KEYWORDS,
 	 "alert(msg, title='AutoPy Alert', default_button='OK', "
-	       "[cancel_button]) => Boolean\n"
+	 "[cancel_button]) => Boolean\n"
 	 "Displays alert with the given attributes.\n"
 	 "Returns True if the default button was pressed, or False if cancelled."},
 	{NULL, NULL, 0, NULL} /* Sentinel */

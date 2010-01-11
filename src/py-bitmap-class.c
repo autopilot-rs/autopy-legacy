@@ -137,7 +137,7 @@ static PyObject *Bitmap_find_every_bitmap(BitmapObject *self, PyObject *args);
                         or None */
 /* Description: Returns count of occurrences of |needle| in |haystack|.
                 Functionally equivalent to:
-				  {% len(bmp.find_every_bitmap(needle, tolerance)) %} */
+                    {% len(bmp.find_every_bitmap(needle, tolerance)) %} */
 static PyObject *Bitmap_count_of_bitmap(BitmapObject *self, PyObject *args);
 
 /* Methods to make pixels in bitmap iterable.
@@ -292,7 +292,7 @@ static PyObject *Bitmap_open(PyObject *self, PyObject *args)
 	if ((bitmap = newMMBitmapFromFile(path, type, &err)) == NULL) {
 		PyErr_SetFormatString(PyExc_IOError, BUFSIZ,
 		                      "Error opening image: %s",
-							  MMIOErrorString(type, err));
+		                      MMIOErrorString(type, err));
 		return NULL;
 	}
 

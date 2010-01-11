@@ -80,7 +80,7 @@ MMBitmapRef copyMMBitmapFromDisplayInRect(MMRect rect)
 	                          (int)rect.origin.y,
 	                          (unsigned int)rect.size.width,
 	                          (unsigned int)rect.size.height,
-							  AllPlanes, ZPixmap);
+	                          AllPlanes, ZPixmap);
 	XCloseDisplay(display);
 	if (image == NULL) return NULL;
 
@@ -211,7 +211,7 @@ static uint8_t *createBufferFromCurrentCGLContext(GLint x,
                                                   GLint y,
                                                   GLsizei width,
                                                   GLsizei height,
-										          size_t bytewidth)
+                                                  size_t bytewidth)
 {
 	uint8_t *data = NULL;
 

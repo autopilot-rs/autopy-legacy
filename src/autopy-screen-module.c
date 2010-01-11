@@ -20,11 +20,11 @@ static PyObject *screen_point_visible(PyObject *self, PyObject *args);
 /* Description: Returns hexadecimal value describing the RGB color at the
                 given point.
 
-				Essentially equivalent to:
+                Essentially equivalent to:
                 {%
-					rect = ((x, y), (1, 1))
-					bitmap.capture_screen_portion(rect).get_color(0, 0)
-				%}
+                    rect = ((x, y), (1, 1))
+                    bitmap.capture_screen_portion(rect).get_color(0, 0)
+                %}
                 only more efficient/convenient. */
 /* Raises: |ValueError| if the rect is out of bounds,
            |OSError| if the system calls were unsuccessful. */

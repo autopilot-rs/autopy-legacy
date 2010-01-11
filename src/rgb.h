@@ -83,8 +83,8 @@ H_INLINE int MMRGBColorSimilarToColor(MMRGBColor c1, MMRGBColor c2,
 		uint8_t d2 = c1.green - c2.green;
 		uint8_t d3 = c1.blue - c2.blue;
 		return sqrtf((d1 * d1) +
-					 (d2 * d2) +
-					 (d3 * d3)) <= (tolerance * 442.0f);
+		             (d2 * d2) +
+		             (d3 * d3)) <= (tolerance * 442.0f);
 	}
 
 }
@@ -99,8 +99,8 @@ H_INLINE int MMRGBHexSimilarToColor(MMRGBHex h1, MMRGBHex h2, float tolerance)
 		uint8_t d2 = GREEN_FROM_HEX(h1) - GREEN_FROM_HEX(h2);
 		uint8_t d3 = BLUE_FROM_HEX(h1) - BLUE_FROM_HEX(h2);
 		return sqrtf((d1 * d1) +
-					 (d2 * d2) +
-					 (d3 * d3)) <= (tolerance * 442.0f);
+		             (d2 * d2) +
+		             (d3 * d3)) <= (tolerance * 442.0f);
 	}
 }
 
