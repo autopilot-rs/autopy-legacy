@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mmm type="module">
 <name>mouse</name>
-<summary>pydroid module for working with the mouse</summary>
+<summary>autopy module for working with the mouse</summary>
 <description>This module contains functions for getting the current state of and controlling the mouse cursor.
 
 Unless otherwise stated, coordinates are those of a screen coordinate system, where the origin is at the top left.</description>

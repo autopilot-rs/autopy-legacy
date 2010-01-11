@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mmm type="module">
 <name>alert</name>
-<summary>pydroid module for displaying alerts</summary>
+<summary>autopy module for displaying alerts</summary>
 <description>This module contains functions for displaying cross-platform  alert dialogs.</description>
 <section name="Functions">
 	<function name="alert">
-		<syntax>alert(msg, title="Pydroid Alert", default_button="OK", [cancel_button])</syntax>
+		<syntax>alert(msg, title="AutoPy Alert", default_button="OK", [cancel_button])</syntax>
 		<description>Displays alert with the given attributes. If <var>cancel_button</var> is not given, only the default button is displayed. Returns <const>True</const> if the default button was pressed, or <const>False</const> if cancelled. Note that the arguments are keywords, and can be passed as named parameters (e.g., <mono>alert(msg="bar", title="foo")</mono>).
 
 Due to limitations in the Win32 API, Windows currently replaces <var>default_button</var> with <mono>"OK"</mono> and <var>cancel_button</var> (if given) with <mono>"Cancel"</mono>. This may be fixed in a later release.</description>

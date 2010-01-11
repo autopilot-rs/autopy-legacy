@@ -391,7 +391,7 @@ def add_header(doc, next_file='', prev_file=''):
     """
     doc.push_tag('div', [('id', 'header')]) # <div id="header">
 
-    doc.insert_tag('a', [('href', '#')], text='Pydroid Documentation')
+    doc.insert_tag('a', [('href', '#')], text='AutoPy Documentation')
     doc.insert_text(' &#187; ')
     doc.insert_tag('a', [('href', 'index.html')], text='API Reference')
 

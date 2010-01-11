@@ -1,6 +1,6 @@
-Pydroid (the software) is licensed under the terms of the MIT license.
+AutoPy (the software) is licensed under the terms of the MIT license.
 
-The documentation for Pydroid is licensed under the terms of the FreeBSD Documentation License.
+The documentation for AutoPy is licensed under the terms of the FreeBSD Documentation License.
 
 ### MIT License
 

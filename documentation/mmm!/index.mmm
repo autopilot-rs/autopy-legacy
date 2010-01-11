@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mmm type="index">
-<name>pydroid</name>
+<name>autopy</name>
 <summary>API Reference</summary>
 <description>
 	A simple toolkit for automating and scripting repetitive tasks, especially those involving a GUI, with Python.

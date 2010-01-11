@@ -57,10 +57,10 @@ def create_ext_modules(src_dir):
     # Submodules of the package to be installed
     # Only a path relative to the |src_dir| is needed
     modules = {
-                'mouse' : {'files' : ['pydroid-mouse-module.c', 'mouse.c',
+                'mouse' : {'files' : ['autopy-mouse-module.c', 'mouse.c',
                                       'deadbeef_rand.c', 'py-convenience.c',
                                       'screen.c']},
-                'bitmap' : {'files' : ['pydroid-bitmap-module.c',
+                'bitmap' : {'files' : ['autopy-bitmap-module.c',
                                        'py-convenience.c', 'py-bitmap-class.c',
                                        'MMBitmap.c',
                                        'io.c', 'bmp_io.c',
@@ -72,13 +72,13 @@ def create_ext_modules(src_dir):
                                        'base64.c',
                                        ],
                             'libraries' : ['png', 'z']},
-                'color' : {'files' : ['pydroid-color-module.c', 'MMBitmap.c']},
-                'screen' : {'files' : ['pydroid-screen-module.c', 'screen.c',
+                'color' : {'files' : ['autopy-color-module.c', 'MMBitmap.c']},
+                'screen' : {'files' : ['autopy-screen-module.c', 'screen.c',
                                        'screengrab.c', 'MMBitmap.c']},
-                'key' : {'files' : ['pydroid-key-module.c', 'keypress.c',
+                'key' : {'files' : ['autopy-key-module.c', 'keypress.c',
                                     'keycode.c', 'deadbeef_rand.c',
                                     'py-convenience.c']},
-                'alert' : {'files' : ['pydroid-alert-module.c', 'alert.c']}
+                'alert' : {'files' : ['autopy-alert-module.c', 'alert.c']}
               }
 
     # Global compilation/linkage flags.
@@ -206,7 +206,7 @@ def create_ext_modules(src_dir):
                                      extra_link_args=extra_link_args))
     return ext_modules
 
-PACKAGE_NAME='pydroid'
+PACKAGE_NAME='autopy'
 PACKAGE_DESCRIPTION='A simple toolkit for automating and scripting repetitive ' \
                     'tasks, especially those involving a GUI, with Python.'
 EXT_MODULES = create_ext_modules('src/')
