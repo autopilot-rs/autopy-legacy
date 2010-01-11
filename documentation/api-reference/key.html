@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="autopy module for working with the keyboard" />
+    <title>
+      key — autopy module for working with the keyboard
+    </title>
+    <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
+  </head>
+  <body>
+    <div id="header">
+      <a href="#">AutoPy Documentation</a> » <a href="index.html">API Reference</a>
+      <div id="nav">
+        <a href="color.html">previous</a> | <a href="index.html">index</a> | <a href="mouse.html">next</a>
+      </div>
+    </div>
+    <div id="container">
+      <div id="sidebar">
+        <h3>
+          Table of Contents
+        </h3>
+        <ul>
+          <li>
+            <a href="#module-key">key — autopy module for working with the keyboard</a>
+            <ul>
+              <li>
+                <a href="#Functions">Functions</a>
+                <ul>
+                  <li>
+                    <a href="#toggle">toggle</a>
+                  </li>
+                  <li>
+                    <a href="#type_string">type_string</a>
+                  </li>
+                  <li>
+                    <a href="#tap">tap</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="#Constants">Constants</a>
+                <ul>
+                  <li>
+                    <a href="#K_F1">K_F1</a>
+                  </li>
+                  <li>
+                    <a href="#K_F2">K_F2</a>
+                  </li>
+                  <li>
+                    <a href="#K_F3">K_F3</a>
+                  </li>
+                  <li>
+                    <a href="#K_F4">K_F4</a>
+                  </li>
+                  <li>
+                    <a href="#K_F5">K_F5</a>
+                  </li>
+                  <li>
+                    <a href="#K_F6">K_F6</a>
+                  </li>
+                  <li>
+                    <a href="#K_F7">K_F7</a>
+                  </li>
+                  <li>
+                    <a href="#K_F8">K_F8</a>
+                  </li>
+                  <li>
+                    <a href="#K_F9">K_F9</a>
+                  </li>
+                  <li>
+                    <a href="#K_LEFT">K_LEFT</a>
+                  </li>
+                  <li>
+                    <a href="#K_CONTROL">K_CONTROL</a>
+                  </li>
+                  <li>
+                    <a href="#K_RIGHT">K_RIGHT</a>
+                  </li>
+                  <li>
+                    <a href="#K_DOWN">K_DOWN</a>
+                  </li>
+                  <li>
+                    <a href="#K_END">K_END</a>
+                  </li>
+                  <li>
+                    <a href="#K_UP">K_UP</a>
+                  </li>
+                  <li>
+                    <a href="#K_PAGEUP">K_PAGEUP</a>
+                  </li>
+                  <li>
+                    <a href="#MOD_CONTROL">MOD_CONTROL</a>
+                  </li>
+                  <li>
+                    <a href="#K_ALT">K_ALT</a>
+                  </li>
+                  <li>
+                    <a href="#MOD_META">MOD_META</a>
+                  </li>
+                  <li>
+                    <a href="#K_RETURN">K_RETURN</a>
+                  </li>
+                  <li>
+                    <a href="#MOD_NONE">MOD_NONE</a>
+                  </li>
+                  <li>
+                    <a href="#MOD_ALT">MOD_ALT</a>
+                  </li>
+                  <li>
+                    <a href="#MOD_SHIFT">MOD_SHIFT</a>
+                  </li>
+                  <li>
+                    <a href="#K_PAGEDOWN">K_PAGEDOWN</a>
+                  </li>
+                  <li>
+                    <a href="#K_DELETE">K_DELETE</a>
+                  </li>
+                  <li>
+                    <a href="#K_HOME">K_HOME</a>
+                  </li>
+                  <li>
+                    <a href="#K_ESCAPE">K_ESCAPE</a>
+                  </li>
+                  <li>
+                    <a href="#K_BACKSPACE">K_BACKSPACE</a>
+                  </li>
+                  <li>
+                    <a href="#K_META">K_META</a>
+                  </li>
+                  <li>
+                    <a href="#K_CAPSLOCK">K_CAPSLOCK</a>
+                  </li>
+                  <li>
+                    <a href="#K_SHIFT">K_SHIFT</a>
+                  </li>
+                  <li>
+                    <a href="#K_F12">K_F12</a>
+                  </li>
+                  <li>
+                    <a href="#K_F10">K_F10</a>
+                  </li>
+                  <li>
+                    <a href="#K_F11">K_F11</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="main">
+        <h1 id="module-key">
+          key — autopy module for working with the keyboard<a href="#module-key" class="headerlink" title="Permalink to this headline">¶</a>
+        </h1>
+        <div class="description">
+          <p>
+            This module contains various functions for controlling the keyboard.
+          </p>
+        </div>
+        <h2 id="Functions">
+          Functions<a href="#Functions" class="headerlink" title="Permalink to this headline">¶</a>
+        </h2>
+        <dl class="section">
+          <dt class="function" id="toggle">
+            <tt class="class-name">key.</tt><tt class="name">toggle</tt><big>(</big><span class="funcarg">key</span>, <span class="funcarg">down_or_up</span>, <span class="funcarg">[modifiers]</span><big>)</big><a href="#toggle" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd>
+            <p>
+              Holds down the given key or keycode if <tt class="var">down_or_up</tt> is <tt class="const">True</tt>, or releases it if not. Integer keycodes and modifiers should be taken from module constants (e.g., <tt class="var">key.K_DELETE</tt> or <tt class="var">key.MOD_META</tt>). If the given key is a character, it is automatically converted to a keycode corresponding to the current keyboard layout.
+            </p>
+            <p>
+              To hold down more than one modifier at a time, bitwise-OR them, e.g.:
+            </p>
+            <pre>
+toggle('a', True, key.MOD_SHIFT | key.MOD_ALT)
+</pre>
+          </dd>
+          <dt class="function" id="type_string">
+            <tt class="class-name">key.</tt><tt class="name">type_string</tt><big>(</big><span class="funcarg">string</span>, <span class="funcarg">wpm=0</span><big>)</big><a href="#type_string" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd>
+            <p>
+              Attempts to simulate typing a string at the given WPM, or as fast as possible if the WPM is 0.
+            </p>
+          </dd>
+          <dt class="function" id="tap">
+            <tt class="class-name">key.</tt><tt class="name">tap</tt><big>(</big><span class="funcarg">key</span>, <span class="funcarg">[modifiers]</span><big>)</big><a href="#tap" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd>
+            <p>
+              Convenience wrapper around <tt class="mono"><a href="#toggle">toggle()</a></tt> that holds down and then releases the given key and modifiers.
+            </p>
+          </dd>
+        </dl>
+        <h2 id="Constants">
+          Constants<a href="#Constants" class="headerlink" title="Permalink to this headline">¶</a>
+        </h2>
+        <dl class="section">
+          <dd>
+            <p>
+              The following is an exhaustive list of constants used by this module in order to input non-printable keys across platforms. Most should be self-explanatory.
+            </p>
+          </dd>
+          <dt class="constant" id="K_F1">
+            <tt class="class-name">key.</tt><tt class="name">K_F1</tt><a href="#K_F1" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_F2">
+            <tt class="class-name">key.</tt><tt class="name">K_F2</tt><a href="#K_F2" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_F3">
+            <tt class="class-name">key.</tt><tt class="name">K_F3</tt><a href="#K_F3" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_F4">
+            <tt class="class-name">key.</tt><tt class="name">K_F4</tt><a href="#K_F4" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_F5">
+            <tt class="class-name">key.</tt><tt class="name">K_F5</tt><a href="#K_F5" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_F6">
+            <tt class="class-name">key.</tt><tt class="name">K_F6</tt><a href="#K_F6" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_F7">
+            <tt class="class-name">key.</tt><tt class="name">K_F7</tt><a href="#K_F7" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_F8">
+            <tt class="class-name">key.</tt><tt class="name">K_F8</tt><a href="#K_F8" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_F9">
+            <tt class="class-name">key.</tt><tt class="name">K_F9</tt><a href="#K_F9" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_LEFT">
+            <tt class="class-name">key.</tt><tt class="name">K_LEFT</tt><a href="#K_LEFT" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_CONTROL">
+            <tt class="class-name">key.</tt><tt class="name">K_CONTROL</tt><a href="#K_CONTROL" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_RIGHT">
+            <tt class="class-name">key.</tt><tt class="name">K_RIGHT</tt><a href="#K_RIGHT" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_DOWN">
+            <tt class="class-name">key.</tt><tt class="name">K_DOWN</tt><a href="#K_DOWN" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_END">
+            <tt class="class-name">key.</tt><tt class="name">K_END</tt><a href="#K_END" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_UP">
+            <tt class="class-name">key.</tt><tt class="name">K_UP</tt><a href="#K_UP" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_PAGEUP">
+            <tt class="class-name">key.</tt><tt class="name">K_PAGEUP</tt><a href="#K_PAGEUP" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="MOD_CONTROL">
+            <tt class="class-name">key.</tt><tt class="name">MOD_CONTROL</tt><a href="#MOD_CONTROL" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd class="constant">
+            <p>
+              Control key modifier.
+            </p>
+          </dd>
+          <dt class="constant" id="K_ALT">
+            <tt class="class-name">key.</tt><tt class="name">K_ALT</tt><a href="#K_ALT" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="MOD_META">
+            <tt class="class-name">key.</tt><tt class="name">MOD_META</tt><a href="#MOD_META" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd class="constant">
+            <p>
+              Equivalent to the command key modifier on Mac OS X, the Windows key modifier on Windows, or the meta key modifiers on X11.
+            </p>
+          </dd>
+          <dt class="constant" id="K_RETURN">
+            <tt class="class-name">key.</tt><tt class="name">K_RETURN</tt><a href="#K_RETURN" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="MOD_NONE">
+            <tt class="class-name">key.</tt><tt class="name">MOD_NONE</tt><a href="#MOD_NONE" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd class="constant">
+            <p>
+              Null modifier (meaning none are to be pressed).
+            </p>
+          </dd>
+          <dt class="constant" id="MOD_ALT">
+            <tt class="class-name">key.</tt><tt class="name">MOD_ALT</tt><a href="#MOD_ALT" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd class="constant">
+            <p>
+              Alt key modifier.
+            </p>
+          </dd>
+          <dt class="constant" id="MOD_SHIFT">
+            <tt class="class-name">key.</tt><tt class="name">MOD_SHIFT</tt><a href="#MOD_SHIFT" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd class="constant">
+            <p>
+              Shift key modifier.
+            </p>
+          </dd>
+          <dt class="constant" id="K_PAGEDOWN">
+            <tt class="class-name">key.</tt><tt class="name">K_PAGEDOWN</tt><a href="#K_PAGEDOWN" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_DELETE">
+            <tt class="class-name">key.</tt><tt class="name">K_DELETE</tt><a href="#K_DELETE" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_HOME">
+            <tt class="class-name">key.</tt><tt class="name">K_HOME</tt><a href="#K_HOME" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_ESCAPE">
+            <tt class="class-name">key.</tt><tt class="name">K_ESCAPE</tt><a href="#K_ESCAPE" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_BACKSPACE">
+            <tt class="class-name">key.</tt><tt class="name">K_BACKSPACE</tt><a href="#K_BACKSPACE" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_META">
+            <tt class="class-name">key.</tt><tt class="name">K_META</tt><a href="#K_META" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_CAPSLOCK">
+            <tt class="class-name">key.</tt><tt class="name">K_CAPSLOCK</tt><a href="#K_CAPSLOCK" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_SHIFT">
+            <tt class="class-name">key.</tt><tt class="name">K_SHIFT</tt><a href="#K_SHIFT" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_F12">
+            <tt class="class-name">key.</tt><tt class="name">K_F12</tt><a href="#K_F12" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_F10">
+            <tt class="class-name">key.</tt><tt class="name">K_F10</tt><a href="#K_F10" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dt class="constant" id="K_F11">
+            <tt class="class-name">key.</tt><tt class="name">K_F11</tt><a href="#K_F11" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+        </dl>
+      </div>
+    </div>
+  </body>
+</html>

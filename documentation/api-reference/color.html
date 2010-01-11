@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="autopy module for converting color formats" />
+    <title>
+      color — autopy module for converting color formats
+    </title>
+    <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
+  </head>
+  <body>
+    <div id="header">
+      <a href="#">AutoPy Documentation</a> » <a href="index.html">API Reference</a>
+      <div id="nav">
+        <a href="bitmap.html">previous</a> | <a href="index.html">index</a> | <a href="key.html">next</a>
+      </div>
+    </div>
+    <div id="container">
+      <div id="sidebar">
+        <h3>
+          Table of Contents
+        </h3>
+        <ul>
+          <li>
+            <a href="#module-color">color — autopy module for converting color formats</a>
+            <ul>
+              <li>
+                <a href="#Functions">Functions</a>
+                <ul>
+                  <li>
+                    <a href="#rgb_to_hex">rgb_to_hex</a>
+                  </li>
+                  <li>
+                    <a href="#hex_to_rgb">hex_to_rgb</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="main">
+        <h1 id="module-color">
+          color — autopy module for converting color formats<a href="#module-color" class="headerlink" title="Permalink to this headline">¶</a>
+        </h1>
+        <div class="description">
+          <p>
+            This module provides routines for converting between the color format (hexadecimal) used by autopy methods and other, more readable, formats (e.g., RGB tuples).
+          </p>
+        </div>
+        <h2 id="Functions">
+          Functions<a href="#Functions" class="headerlink" title="Permalink to this headline">¶</a>
+        </h2>
+        <dl class="section">
+          <dt class="function" id="rgb_to_hex">
+            <tt class="class-name">color.</tt><tt class="name">rgb_to_hex</tt><big>(</big><span class="funcarg">r</span>, <span class="funcarg">g</span>, <span class="funcarg">b</span><big>)</big><a href="#rgb_to_hex" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd>
+            <p>
+              Returns hexadecimal value of given RGB tuple. <tt class="var">r</tt>, <tt class="var">g</tt>, and <tt class="var">b</tt> should be in the range 0 - 255.
+            </p>
+          </dd>
+          <dt class="function" id="hex_to_rgb">
+            <tt class="class-name">color.</tt><tt class="name">hex_to_rgb</tt><big>(</big><span class="funcarg">hex</span><big>)</big><a href="#hex_to_rgb" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd>
+            <p>
+              Returns a tuple <tt class="mono">(r, g, b)</tt> of the RGB <tt class="keyword">integer</tt> values equivalent to the given RGB hexadecimal value. <tt class="var">r</tt>, <tt class="var">g</tt>, and <tt class="var">b</tt> are in the range 0 - 255.
+            </p>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </body>
+</html>

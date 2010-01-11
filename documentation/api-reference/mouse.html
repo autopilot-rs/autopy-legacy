@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="autopy module for working with the mouse" />
+    <title>
+      mouse — autopy module for working with the mouse
+    </title>
+    <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
+  </head>
+  <body>
+    <div id="header">
+      <a href="#">AutoPy Documentation</a> » <a href="index.html">API Reference</a>
+      <div id="nav">
+        <a href="key.html">previous</a> | <a href="index.html">index</a> | <a href="screen.html">next</a>
+      </div>
+    </div>
+    <div id="container">
+      <div id="sidebar">
+        <h3>
+          Table of Contents
+        </h3>
+        <ul>
+          <li>
+            <a href="#module-mouse">mouse — autopy module for working with the mouse</a>
+            <ul>
+              <li>
+                <a href="#Functions">Functions</a>
+                <ul>
+                  <li>
+                    <a href="#get_pos">get_pos</a>
+                  </li>
+                  <li>
+                    <a href="#toggle">toggle</a>
+                  </li>
+                  <li>
+                    <a href="#move">move</a>
+                  </li>
+                  <li>
+                    <a href="#smooth_move">smooth_move</a>
+                  </li>
+                  <li>
+                    <a href="#click">click</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="#Constants">Constants</a>
+                <ul>
+                  <li>
+                    <a href="#RIGHT_BUTTON">RIGHT_BUTTON</a>
+                  </li>
+                  <li>
+                    <a href="#CENTER_BUTTON">CENTER_BUTTON</a>
+                  </li>
+                  <li>
+                    <a href="#LEFT_BUTTON">LEFT_BUTTON</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="main">
+        <h1 id="module-mouse">
+          mouse — autopy module for working with the mouse<a href="#module-mouse" class="headerlink" title="Permalink to this headline">¶</a>
+        </h1>
+        <div class="description">
+          <p>
+            This module contains functions for getting the current state of and controlling the mouse cursor.
+          </p>
+          <p>
+            Unless otherwise stated, coordinates are those of a screen coordinate system, where the origin is at the top left.
+          </p>
+        </div>
+        <h2 id="Functions">
+          Functions<a href="#Functions" class="headerlink" title="Permalink to this headline">¶</a>
+        </h2>
+        <dl class="section">
+          <dt class="function" id="get_pos">
+            <tt class="class-name">mouse.</tt><tt class="name">get_pos</tt><big>(</big><big>)</big><a href="#get_pos" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd>
+            <p>
+              Returns a tuple <tt class="mono">(x, y)</tt> of the current mouse position.
+            </p>
+          </dd>
+          <dt class="function" id="toggle">
+            <tt class="class-name">mouse.</tt><tt class="name">toggle</tt><big>(</big><span class="funcarg">down</span>, <span class="funcarg">button=LEFT_BUTTON</span><big>)</big><a href="#toggle" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd>
+            <p>
+              Holds down or releases the given mouse button in the current position. <tt class="var">button</tt> can be <tt class="var">LEFT_BUTTON</tt>, <tt class="var">RIGHT_BUTTON</tt>, or <tt class="var">CENTER_BUTTON</tt>. If no button is given, the left button is defaulted to.
+            </p>
+            <div class="exceptions-header">
+              Exceptions:
+            </div>
+            <ul class="exceptions">
+              <li>
+                <tt class="var">ValueError</tt> is thrown if the mouse button is invalid.
+              </li>
+            </ul>
+          </dd>
+          <dt class="function" id="move">
+            <tt class="class-name">mouse.</tt><tt class="name">move</tt><big>(</big><span class="funcarg">x</span>, <span class="funcarg">y</span><big>)</big><a href="#move" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd>
+            <p>
+              Moves the mouse to the given <tt class="mono">(x, y)</tt> coordinate.
+            </p>
+            <div class="exceptions-header">
+              Exceptions:
+            </div>
+            <ul class="exceptions">
+              <li>
+                <tt class="var">ValueError</tt> is thrown if the point is out of index.
+              </li>
+            </ul>
+          </dd>
+          <dt class="function" id="smooth_move">
+            <tt class="class-name">mouse.</tt><tt class="name">smooth_move</tt><big>(</big><span class="funcarg">x</span>, <span class="funcarg">y</span><big>)</big><a href="#smooth_move" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd>
+            <p>
+              Smoothly moves the mouse to the given <tt class="mono">(x, y)</tt> coordinate in a straight line.
+            </p>
+            <div class="exceptions-header">
+              Exceptions:
+            </div>
+            <ul class="exceptions">
+              <li>
+                <tt class="var">ValueError</tt> is thrown if the point is out of index.
+              </li>
+            </ul>
+          </dd>
+          <dt class="function" id="click">
+            <tt class="class-name">mouse.</tt><tt class="name">click</tt><big>(</big><span class="funcarg">button=LEFT_BUTTON</span><big>)</big><a href="#click" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd>
+            <p>
+              Convenience wrapper around <tt class="mono"><a href="#toggle">toggle()</a></tt> that holds down and then releases the given mouse button.
+            </p>
+          </dd>
+        </dl>
+        <h2 id="Constants">
+          Constants<a href="#Constants" class="headerlink" title="Permalink to this headline">¶</a>
+        </h2>
+        <dl class="section">
+          <dd>
+            <p>
+              The following is a list of constants used by this module in order to specify mouse buttons.
+            </p>
+          </dd>
+          <dt class="constant" id="RIGHT_BUTTON">
+            <tt class="class-name">mouse.</tt><tt class="name">RIGHT_BUTTON</tt><a href="#RIGHT_BUTTON" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd class="constant">
+            <p>
+              Right mouse button.
+            </p>
+          </dd>
+          <dt class="constant" id="CENTER_BUTTON">
+            <tt class="class-name">mouse.</tt><tt class="name">CENTER_BUTTON</tt><a href="#CENTER_BUTTON" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd class="constant">
+            <p>
+              Middle mouse button.
+            </p>
+          </dd>
+          <dt class="constant" id="LEFT_BUTTON">
+            <tt class="class-name">mouse.</tt><tt class="name">LEFT_BUTTON</tt><a href="#LEFT_BUTTON" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd class="constant">
+            <p>
+              Left mouse button.
+            </p>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </body>
+</html>

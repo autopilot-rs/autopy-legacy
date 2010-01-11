@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="autopy module for displaying alerts" />
+    <title>
+      alert — autopy module for displaying alerts
+    </title>
+    <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
+  </head>
+  <body>
+    <div id="header">
+      <a href="#">AutoPy Documentation</a> » <a href="index.html">API Reference</a>
+      <div id="nav">
+        <a href="index.html">previous</a> | <a href="index.html">index</a> | <a href="bitmap.html">next</a>
+      </div>
+    </div>
+    <div id="container">
+      <div id="sidebar">
+        <h3>
+          Table of Contents
+        </h3>
+        <ul>
+          <li>
+            <a href="#module-alert">alert — autopy module for displaying alerts</a>
+            <ul>
+              <li>
+                <a href="#Functions">Functions</a>
+                <ul>
+                  <li>
+                    <a href="#alert">alert</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="main">
+        <h1 id="module-alert">
+          alert — autopy module for displaying alerts<a href="#module-alert" class="headerlink" title="Permalink to this headline">¶</a>
+        </h1>
+        <div class="description">
+          <p>
+            This module contains functions for displaying cross-platform alert dialogs.
+          </p>
+        </div>
+        <h2 id="Functions">
+          Functions<a href="#Functions" class="headerlink" title="Permalink to this headline">¶</a>
+        </h2>
+        <dl class="section">
+          <dt class="function" id="alert">
+            <tt class="class-name">alert.</tt><tt class="name">alert</tt><big>(</big><span class="funcarg">msg</span>, <span class="funcarg">title="AutoPy Alert"</span>, <span class="funcarg">default_button="OK"</span>, <span class="funcarg">[cancel_button]</span><big>)</big><a href="#alert" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd>
+            <p>
+              Displays alert with the given attributes. If <tt class="var">cancel_button</tt> is not given, only the default button is displayed. Returns <tt class="const">True</tt> if the default button was pressed, or <tt class="const">False</tt> if cancelled. Note that the arguments are keywords, and can be passed as named parameters (e.g., <tt class="mono"><a href="#alert">alert(msg="bar", title="foo")</a></tt>).
+            </p>
+            <p>
+              Due to limitations in the Win32 API, Windows currently replaces <tt class="var">default_button</tt> with <tt class="mono">"OK"</tt> and <tt class="var">cancel_button</tt> (if given) with <tt class="mono">"Cancel"</tt>. This may be fixed in a later release.
+            </p>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </body>
+</html>
