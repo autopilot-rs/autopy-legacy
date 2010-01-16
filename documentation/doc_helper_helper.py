@@ -36,21 +36,21 @@ def attrs_from_mmm(mmm):
     def convert_tags(tree):
         """Converts MMM attribute tags into their associated HTML tags."""
         for tagname in 'keyword', 'const', 'var', 'mono':
-            for element in tree.findall('.//' + tagname):
+            for element in tree.iterfind('.//' + tagname):
                 element.tag = 'tt'
                 element.set('class', tagname)
 
-        for element in tree.findall('.//bcode'):
+        for element in tree.iterfind('.//bcode'):
             element.tag = 'pre'
 
-        for element in tree.findall('.//note'):
+        for element in tree.iterfind('.//note'):
             element.tag = 'p'
             element.insert(0, '<span class="note-title">Note:</span>')
             element.set('class', 'note')
     def add_links(tree, function_names):
         """Adds links to given functions where referenced."""
         add_links.regex = re.compile(r'\S+(?=\()')
-        for element in tree.findall(".//tt[@class='mono']"):
+        for element in tree.iterfind(".//tt[@class='mono']"):
             func = add_links.regex.match(element.text)
 
             if func and func.group(0) in function_names:
@@ -84,7 +84,7 @@ def attrs_from_mmm(mmm):
         of invalid syntax.
         """
         functions = {}
-        for element in section.findall('function'):
+        for element in section.iterfind('function'):
             syntax = element.find('syntax')
             if syntax is None:
                 raise SyntaxError('Missing required <syntax> tag in "%s"' %
@@ -108,7 +108,7 @@ def attrs_from_mmm(mmm):
             exceptions_tag = element.find('exceptions')
             if exceptions_tag is not None:
                 exceptions = function['exceptions'] = {}
-                for exception_tag in exceptions_tag.findall('exception'):
+                for exception_tag in exceptions_tag.iterfind('exception'):
                     name = exception_tag.get('name')
                     exceptions[name] = render_tag_contents(exception_tag)
 
@@ -123,7 +123,7 @@ def attrs_from_mmm(mmm):
         Raises SyntaxError if <constant> has invalid syntax.
         """
         constants = {}
-        for element in section.findall('constant'):
+        for element in section.iterfind('constant'):
             name = element.get('name')
             if name is None:
                 raise SyntaxError('<constant> tag missing "name" attribute' %
@@ -141,7 +141,7 @@ def attrs_from_mmm(mmm):
         return constants
     def get_modules(section):
         """Returns list of module names in given section."""
-        return [module.get('name') for module in section.findall('module')]
+        return [module.get('name') for module in section.iterfind('module')]
 
     tree = etree.XML(mmm)
 
@@ -150,7 +150,7 @@ def attrs_from_mmm(mmm):
 
     # Add hyperlinks to function references.
     functions = [function.get('name')
-                 for function in tree.findall('*//function')]
+                 for function in tree.iterfind('*//function')]
     add_links(tree, functions)
 
     attributes = {'type': tree.get('type')}
@@ -159,7 +159,7 @@ def attrs_from_mmm(mmm):
         if element is not None:
             attributes[tagname] = render_tag_contents(element)
 
-    for section_tag in tree.findall('section'):
+    for section_tag in tree.iterfind('section'):
         sections = attributes.setdefault('sections', {})
         name = section_tag.get('name')
         if name:
