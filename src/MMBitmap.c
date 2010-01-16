@@ -59,9 +59,7 @@ MMBitmapRef copyMMBitmapFromPortion(MMBitmapRef source, MMRect rect)
 {
 	assert(source != NULL);
 
-	if (source->imageBuffer == NULL ||
-	    rect.origin.x + rect.size.width > source->width ||
-	    rect.origin.y + rect.size.height > source->height) {
+	if (source->imageBuffer == NULL || !MMBitmapRectInBounds(source, rect)) {
 		return NULL;
 	} else {
 		uint8_t *copiedBuf = NULL;
@@ -70,7 +68,7 @@ MMBitmapRef copyMMBitmapFromPortion(MMBitmapRef source, MMRect rect)
 		                      (rect.origin.x * source->bytesPerPixel);
 
 		/* Don't go over the bounds, programmer! */
-		assert((bufsize + offset) < (source->bytewidth * source->height));
+		assert((bufsize + offset) <= (source->bytewidth * source->height));
 
 		copiedBuf = malloc(bufsize);
 		if (copiedBuf == NULL) return NULL;

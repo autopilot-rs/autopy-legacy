@@ -423,9 +423,8 @@ static PyObject *Bitmap_get_portion(BitmapObject *self, PyObject *args)
 		return NULL;
 	}
 
-	if (rect.origin.x + rect.size.width > self->bitmap->width ||
-	    rect.origin.y + rect.size.height > self->bitmap->height) {
-		PyErr_SetString(PyExc_ValueError, "Portion outside of bitmap");
+	if (!MMBitmapRectInBounds(self->bitmap, rect)) {
+		PyErr_SetString(PyExc_ValueError, "Portion out of bounds");
 		return NULL;
 	}
 

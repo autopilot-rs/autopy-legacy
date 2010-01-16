@@ -37,7 +37,8 @@ void destroyMMBitmap(MMBitmapRef bitmap);
 /* Returns copy of MMBitmap, to be destroy()'d by caller. */
 MMBitmapRef copyMMBitmap(MMBitmapRef bitmap);
 
-/* Copy one MMBitmap juxtaposed in another. */
+/* Returns copy of one MMBitmap juxtaposed in another (to be destroy()'d
+ * by the caller.), or NULL on error. */
 MMBitmapRef copyMMBitmapFromPortion(MMBitmapRef source, MMRect rect);
 
 #define MMBitmapPointInBounds(image, p) ((p).x < (image)->width && \
