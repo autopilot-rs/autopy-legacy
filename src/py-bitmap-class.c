@@ -38,6 +38,14 @@ static PyObject *Bitmap_open(PyObject *self, PyObject *args);
 /* Raises: |ValueError| if the given string was invalid. */
 static PyObject *Bitmap_from_string(PyObject *self, PyObject *args);
 
+/* Syntax: bmp.get_portion(origin, size) => Bitmap object */
+/* Arguments: |origin| => |x|, |y| tuple of ints,
+              |size| => |width|, |height| tuple of ints */
+/* Description: Returns new bitmap object created from a portion of another. */
+/* Raises: |ValueError| if portion was out of bounds,
+           |IOError| if portion could not be copied. */
+static PyObject *Bitmap_get_portion(BitmapObject *self, PyObject *args);
+
 /* -- Bitmap Instance method declarations -- */
 
 /* Syntax: bmp.point_in_bounds(x, y) => Boolean */
@@ -181,6 +189,9 @@ static PyMethodDef Bitmap_methods[] = {
 	{"from_string", Bitmap_from_string, METH_CLASS | METH_VARARGS,
 	 "Bitmap.from_string(string) -> Bitmap object\n"
 	 "Returns a bitmap object created from the given string."},
+	{"get_portion", (PyCFunction)Bitmap_get_portion, METH_VARARGS,
+	 "bmp.get_portion(x, y, width, height) -> Bitmap object\n"
+	 "Returns new bitmap object created from portion of another."},
 	{"copy_to_pboard", (PyCFunction)Bitmap_copy_to_pboard, METH_NOARGS,
 	 "bmp.copy_to_pboard() -> None\n"
 	 "Copies image to pasteboard."},
@@ -400,6 +411,32 @@ static PyObject *Bitmap_get_height(BitmapObject *self, PyObject *args)
 }
 
 /* -- End of getters/setters -- */
+
+static PyObject *Bitmap_get_portion(BitmapObject *self, PyObject *args)
+{
+	MMRect rect;
+	MMBitmapRef portion = NULL;
+	if (!PyArg_ParseTuple(args, "(kk)(kk)", &(rect.origin.x),
+	                                        &(rect.origin.y),
+	                                        &(rect.size.width),
+	                                        &(rect.size.height))) {
+		return NULL;
+	}
+
+	if (rect.origin.x + rect.size.width > self->bitmap->width ||
+	    rect.origin.y + rect.size.height > self->bitmap->height) {
+		PyErr_SetString(PyExc_ValueError, "Portion outside of bitmap");
+		return NULL;
+	}
+
+	portion = copyMMBitmapFromPortion(self->bitmap, rect);
+
+	if (portion == NULL) {
+		PyErr_SetString(PyExc_IOError, "Error grabbing bitmap portion");
+		return NULL;
+	}
+	return BitmapObject_FromMMBitmap(portion);
+}
 
 static PyObject *Bitmap_point_in_bounds(BitmapObject *self, PyObject *args)
 {

@@ -30,6 +30,14 @@ It also defines functions for taking screenshots of the screen.</description>
 			<exception name="ValueError">the given string was invalid</exception>
 		</exceptions>
 	</function>
+	<function name="bmp.get_portion" class="NO">
+		<syntax>bmp.get_portion(origin, size)</syntax>
+		<description>Returns new bitmap object created from a portion of another.</description>
+		<exceptions>
+			<exception name="ValueError">portion was out of bounds</exception>
+			<exception name="IOError">portion could not be copied</exception>
+		</exceptions>
+	</function>
 	<function name="bmp.point_in_bounds" class="NO">
 		<syntax>bmp.point_in_bounds(x, y)</syntax>
 		<description>Returns <const>True</const> if <mono>x &lt; bmp.width</mono> and <mono>y &lt; bmp.height</mono>, or <const>False</const> if not.</description>
@@ -72,7 +80,7 @@ It also defines functions for taking screenshots of the screen.</description>
 	</function>
 	<function name="bmp.count_of_color" class="NO">
 		<syntax>bmp.count_of_color(color, tolerance=0.0, rect=None)</syntax>
-		<description>Returns count of color in bitmap. Functionally equivalent to: 
+		<description>Returns count of color in bitmap. Functionally equivalent to:
 <bcode>len(find_every_color(color, tolerance, rect))</bcode></description>
 	</function>
 	<function name="bmp.find_bitmap" class="NO">
@@ -85,7 +93,7 @@ It also defines functions for taking screenshots of the screen.</description>
 	</function>
 	<function name="bmp.count_of_bitmap" class="NO">
 		<syntax>bmp.count_of_bitmap(needle, tolerance=0.0, rect=None)</syntax>
-		<description>Returns count of occurrences of <var>needle</var> in <var>haystack</var>. Functionally equivalent to: 
+		<description>Returns count of occurrences of <var>needle</var> in <var>haystack</var>. Functionally equivalent to:
 <bcode>len(bmp.find_every_bitmap(needle, tolerance))</bcode></description>
 	</function>
 </section>

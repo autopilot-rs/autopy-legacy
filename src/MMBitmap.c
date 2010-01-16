@@ -54,3 +54,34 @@ MMBitmapRef copyMMBitmap(MMBitmapRef bitmap)
 	                      bitmap->bitsPerPixel,
 	                      bitmap->bytesPerPixel);
 }
+
+MMBitmapRef copyMMBitmapFromPortion(MMBitmapRef source, MMRect rect)
+{
+	assert(source != NULL);
+
+	if (source->imageBuffer == NULL ||
+	    rect.origin.x + rect.size.width > source->width ||
+	    rect.origin.y + rect.size.height > source->height) {
+		return NULL;
+	} else {
+		uint8_t *copiedBuf = NULL;
+		const size_t bufsize = rect.size.height * source->bytewidth;
+		const size_t offset = (source->bytewidth * rect.origin.y) +
+		                      (rect.origin.x * source->bytesPerPixel);
+
+		/* Don't go over the bounds, programmer! */
+		assert((bufsize + offset) < (source->bytewidth * source->height));
+
+		copiedBuf = malloc(bufsize);
+		if (copiedBuf == NULL) return NULL;
+
+		memcpy(copiedBuf, source->imageBuffer + offset, bufsize);
+
+		return createMMBitmap(copiedBuf,
+		                      rect.size.width,
+		                      rect.size.height,
+		                      source->bytewidth,
+		                      source->bitsPerPixel,
+		                      source->bytesPerPixel);
+	}
+}
