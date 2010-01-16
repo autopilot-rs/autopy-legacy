@@ -183,7 +183,7 @@ def attrs_from_mmm(mmm):
 
     return attributes
 
-def html_from_mmm(mmm_attrs, add_header_func=None):
+def html_from_mmm(mmm_attrs, add_header_func=None, add_footer_func=None):
     """Returns valid XHTML page from given attributes."""
     def anchor(str):
         return str.replace(' ', '_')
@@ -379,6 +379,10 @@ def html_from_mmm(mmm_attrs, add_header_func=None):
 
     doc.pop_tag() # </div>
     doc.pop_tag() # </div>
+
+    if add_footer_func:
+        add_footer_func(doc)
+
     doc.pop_tag() # </body>
     doc.pop_tag() # </html>
 
@@ -409,6 +413,9 @@ def add_header(doc, next_file='', prev_file=''):
 
     doc.pop_tag() # </div>
     doc.pop_tag() # </div>
+
+def add_footer(doc):
+    pass
 
 def prev_cur_next(lst):
     """
@@ -443,7 +450,8 @@ def main(index_file, out_dir):
         add_header_func = lambda doc: add_header(doc, next_file, prev_file)
 
         f.write(html_from_mmm(attrs_from_mmm(readfile(inpath)),
-                              add_header_func=add_header_func))
+                              add_header_func=add_header_func,
+                              add_footer_func=add_footer))
         f.close()
 
     print '%d files written to "%s"!' % (len(module_names), out_dir)
