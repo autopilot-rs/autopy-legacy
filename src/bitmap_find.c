@@ -63,10 +63,10 @@ static int findBitmapInRectAt(MMBitmapRef needle,
                                 MMPoint startPoint,
                                 UTHashTable *badShiftTable)
 {
-	const MMPoint lastPoint = MMPointMake(needle->width - 1, needle->height - 1);
 	const size_t scanHeight = rect.size.height - needle->height;
 	const size_t scanWidth = rect.size.width - needle->width;
 	MMPoint pointOffset = startPoint;
+	/* const MMPoint lastPoint = MMPointMake(needle->width - 1, needle->height - 1); */
 
 	/* Sanity check */
 	if (needle->height > haystack->height || needle->width > haystack->width ||
@@ -83,8 +83,8 @@ static int findBitmapInRectAt(MMBitmapRef needle,
 
 	/* Search |haystack|, while |needle| can still be within it. */
 	while (pointOffset.y <= scanHeight) {
-		struct shiftNode *node = NULL;
-		MMRGBHex lastColor;
+		/* struct shiftNode *node = NULL;
+		MMRGBHex lastColor; */
 
 		while (pointOffset.x <= scanWidth) {
 			/* Check offset in |haystack| for |needle|. */
@@ -102,14 +102,18 @@ static int findBitmapInRectAt(MMBitmapRef needle,
 			 * alternative of pretending that the mismatched color was the previous
 			 * color is slower in the normal case.
 			 */
-			lastColor = MMRGBHexAtPoint(haystack, pointOffset.x + lastPoint.x,
-			                                      pointOffset.y + lastPoint.y);
+			/* lastColor = MMRGBHexAtPoint(haystack, pointOffset.x + lastPoint.x,
+			                                      pointOffset.y + lastPoint.y); */
 
+			/* TODO: This fails on certain edge cases (issue#7). */
 			/* When a color is encountered that does not occur in |needle|, we can
 			 * safely skip ahead for the whole length of |needle|.
 			 * Otherwise, use the value stored in the jump table. */
-			node = nodeForColor(badShiftTable, lastColor);
-			pointOffset.x += (node == NULL) ? needle->width : (node->offset).x;
+			/* node = nodeForColor(badShiftTable, lastColor);
+			pointOffset.x += (node == NULL) ? needle->width : (node->offset).x; */
+
+			/* For now, be naive. */
+			++pointOffset.x;
 		}
 
 		pointOffset.x = rect.origin.x;
