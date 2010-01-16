@@ -103,7 +103,7 @@ static int findBitmapInRectAt(MMBitmapRef needle,
 			 * color is slower in the normal case.
 			 */
 			lastColor = MMRGBHexAtPoint(haystack, pointOffset.x + lastPoint.x,
-											      pointOffset.y + lastPoint.y);
+			                                      pointOffset.y + lastPoint.y);
 
 			/* When a color is encountered that does not occur in |needle|, we can
 			 * safely skip ahead for the whole length of |needle|.

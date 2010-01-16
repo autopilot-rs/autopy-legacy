@@ -1,3 +1,0 @@
-- key.toggle() on Mac
-- Various functions on X (fixed!)
-- libpng on Windows (fixed!)
