@@ -5,56 +5,38 @@
                             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 	<url>
 		<loc>http://msanders.github.com/autopy/</loc>
-		<lastmod>2010-01-18</lastmod>
+		<lastmod>2010-03-22</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.80</priority>
 	</url>
 	<url>
 		<loc>http://msanders.github.com/autopy/documentation/api-reference/</loc>
-		<lastmod>2010-01-18</lastmod>
+		<lastmod>2010-03-22</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>1.00</priority>
 	</url>
 	<url>
 		<loc>http://msanders.github.com/autopy/documentation/api-reference/index.html</loc>
-		<lastmod>2010-01-18</lastmod>
+		<lastmod>2010-03-22</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>1.00</priority>
 	</url>
 	<url>
 		<loc>http://msanders.github.com/autopy/documentation/api-reference/alert.html</loc>
-		<lastmod>2010-01-18</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.60</priority>
 	</url>
 	<url>
 		<loc>http://msanders.github.com/autopy/documentation/api-reference/bitmap.html</loc>
-		<lastmod>2010-01-18</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.80</priority>
 	</url>
 	<url>
 		<loc>http://msanders.github.com/autopy/documentation/api-reference/color.html</loc>
-		<lastmod>2010-01-18</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.60</priority>
 	</url>
 	<url>
 		<loc>http://msanders.github.com/autopy/documentation/api-reference/key.html</loc>
-		<lastmod>2010-01-18</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.70</priority>
 	</url>
 	<url>
 		<loc>http://msanders.github.com/autopy/documentation/api-reference/mouse.html</loc>
-		<lastmod>2010-01-18</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.70</priority>
 	</url>
 	<url>
 		<loc>http://msanders.github.com/autopy/documentation/api-reference/screen.html</loc>
-		<lastmod>2010-01-18</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.70</priority>
 	</url>
 </urlset>
