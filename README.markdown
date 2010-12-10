@@ -81,7 +81,7 @@ AutoPy is a simple toolkit for automating and scripting repetitive tasks, especi
 
 #### Binary Installers
 
-AutoPy installers are currently available for [Leopard](http://cloud.github.com/downloads/msanders/autopy/autopy-leopard.pkg), [Snow Leopard](http://cloud.github.com/downloads/msanders/autopy/autopy-snowleopard.pkg), and [Windows](http://cloud.github.com/downloads/msanders/autopy/autopy-win32-py26.exe). For other platforms, you will have to compile it yourself &#8212; fortunately, this is a relatively easy task.
+AutoPy installers are currently available for [Leopard](https://github.com/downloads/msanders/autopy/autopy-leopard.pkg), [Snow Leopard](https://github.com/downloads/msanders/autopy/autopy-snowleopard.pkg), and [Windows](https://github.com/downloads/msanders/autopy/autopy-win32-py26.exe). For other platforms, you will have to compile it yourself &#8212; fortunately, this is a relatively easy task.
 
 #### Installing from Source
 
@@ -109,7 +109,7 @@ The following is the full source for a "hello world" script in autopy. Running t
 	    autopy.alert.alert("Hello, world")
 	hello_there_world()
 
-![Cross platform alerts](http://s3.amazonaws.com/autopy/alerts.png)
+![Cross platform alerts](https://github.com/downloads/msanders/autopy/alerts.png)
 
 <div id="autopy-tutorials"></div>
 
@@ -156,7 +156,7 @@ Even better, we could write our own function to move the mouse across the screen
 
 	sine_mouse_wave()
 
-<a href="http://msanders.github.com/autopy/documentation/sine-wave"><img src="http://msanders.github.com/autopy/documentation/sine-wave/sine-move-mouse-thumbnail.jpg" alt="Demonstration video"/></a>
+<a href="http://msanders.github.com/autopy/documentation/sine-wave"><img src="https://github.com/downloads/msanders/autopy/sine-move-mouse-thumbnail.jpg" alt="Demonstration video"/></a>
 
 Pretty cool, huh?
 
