@@ -1,6 +1,5 @@
 #include "keypress.h"
 #include "deadbeef_rand.h"
-#include "keywords.h"
 #include <ctype.h> /* For isupper() */
 
 #if defined(IS_WINDOWS)
@@ -67,13 +66,13 @@ void toggleKeyCode(MMKeyCode code, const bool down, MMKeyFlags flags)
 #endif
 }
 
-INLINE void tapKeyCode(MMKeyCode code, MMKeyFlags flags)
+void tapKeyCode(MMKeyCode code, MMKeyFlags flags)
 {
 	toggleKeyCode(code, true, flags);
 	toggleKeyCode(code, false, flags);
 }
 
-INLINE void toggleKey(char c, const bool down, MMKeyFlags flags)
+void toggleKey(char c, const bool down, MMKeyFlags flags)
 {
 	if (isupper(c) && !(flags & MOD_SHIFT)) {
 		flags |= MOD_SHIFT; /* Not sure if this is safe for all layouts. */
@@ -81,7 +80,7 @@ INLINE void toggleKey(char c, const bool down, MMKeyFlags flags)
 	toggleKeyCode(keyCodeForChar(c), down, flags);
 }
 
-INLINE void tapKey(char c, MMKeyFlags flags)
+void tapKey(char c, MMKeyFlags flags)
 {
 	toggleKey(c, true, flags);
 	toggleKey(c, false, flags);
@@ -112,13 +111,13 @@ void toggleUniKey(char c, const bool down)
 	#define toggleUniKey(c, down) toggleKey(c, down, MOD_NONE)
 #endif
 
-static INLINE void tapUniKey(char c)
+static void tapUniKey(char c)
 {
 	toggleUniKey(c, true);
 	toggleUniKey(c, false);
 }
 
-INLINE void typeString(const char *str)
+void typeString(const char *str)
 {
 	while (*str != '\0') {
 		tapUniKey(*str++);

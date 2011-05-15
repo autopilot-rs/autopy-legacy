@@ -1,6 +1,5 @@
 #include "bitmap_find.h"
 #include "UTHashTable.h"
-#include "keywords.h"
 #include <assert.h>
 
 /* Node to be used in hash table. */
@@ -13,13 +12,11 @@ struct shiftNode {
 /* --- Hash table helper functions --- */
 
 /* Adds hex-color/offset pair to jump table. */
-static INLINE void addNodeToTable(UTHashTable *table, MMRGBHex color,
-                                  MMPoint offset);
+static void addNodeToTable(UTHashTable *table, MMRGBHex color, MMPoint offset);
 
 /* Returns node associated with color in jump table, or NULL if it
  * doesn't exist. */
-static INLINE struct shiftNode *nodeForColor(UTHashTable *table,
-                                             MMRGBHex color);
+static struct shiftNode *nodeForColor(UTHashTable *table, MMRGBHex color);
 
 /* Returns nonzero (true) if table has key, or zero (false) if not. */
 #define tableHasKey(table, color) (nodeForColor(table, color) != NULL)
@@ -148,11 +145,11 @@ static int findBitmapInRectAt(MMBitmapRef needle,
 	return -1;
 }
 
-INLINE int findBitmapInRect(MMBitmapRef needle,
-                            MMBitmapRef haystack,
-                            MMPoint *point,
-                            MMRect rect,
-                            float tolerance)
+int findBitmapInRect(MMBitmapRef needle,
+		             MMBitmapRef haystack,
+                     MMPoint *point,
+                     MMRect rect,
+                     float tolerance)
 {
 	UTHashTable badShiftTable;
 	int ret;
@@ -253,9 +250,9 @@ static int needleAtOffset(MMBitmapRef needle, MMBitmapRef haystack,
 
 /* --- Hash table helper functions --- */
 
-static INLINE void addNodeToTable(UTHashTable *table,
-                                  MMRGBHex hexColor,
-                                  MMPoint offset)
+static void addNodeToTable(UTHashTable *table,
+                           MMRGBHex hexColor,
+                           MMPoint offset)
 {
 	struct shiftNode *node = getNewNode(table);
 	node->color = hexColor;
@@ -263,8 +260,8 @@ static INLINE void addNodeToTable(UTHashTable *table,
 	UTHASHTABLE_ADD_INT(table, color, node, struct shiftNode);
 }
 
-static INLINE struct shiftNode *nodeForColor(UTHashTable *table,
-                                             MMRGBHex color)
+static struct shiftNode *nodeForColor(UTHashTable *table,
+                                      MMRGBHex color)
 {
 	struct shiftNode *uttable = table->uttable;
 	struct shiftNode *node;

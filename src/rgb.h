@@ -4,7 +4,7 @@
 
 #include <stdlib.h> /* For abs() */
 #include <math.h>
-#include "keywords.h" /* For H_INLINE */
+#include "inline_keywords.h" /* For H_INLINE */
 
 #if defined(_MSC_VER)
 	#include "ms_stdint.h"

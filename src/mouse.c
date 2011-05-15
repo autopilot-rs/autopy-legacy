@@ -1,6 +1,5 @@
 #include "mouse.h"
 #include "screen.h"
-#include "keywords.h"
 #include "deadbeef_rand.h"
 #include "math.h" /* hypot() */
 
@@ -23,7 +22,7 @@
 	#define ssize_t SSIZE_T /* sigh */
 #endif
 
-INLINE void moveMouse(MMPoint point)
+void moveMouse(MMPoint point)
 {
 #if defined(IS_MACOSX)
 	CGEventRef move = CGEventCreateMouseEvent(NULL, kCGEventMouseMoved,
@@ -44,7 +43,7 @@ INLINE void moveMouse(MMPoint point)
 #endif
 }
 
-INLINE MMPoint getMousePos()
+MMPoint getMousePos()
 {
 #if defined(IS_MACOSX)
 	CGEventRef event = CGEventCreate(NULL);
@@ -104,7 +103,7 @@ INLINE MMPoint getMousePos()
 
 #endif
 
-INLINE void toggleMouse(bool down, MMMouseButton button)
+void toggleMouse(bool down, MMMouseButton button)
 {
 #if defined(IS_MACOSX)
 	const CGPoint currentPos = CGPointFromMMPoint(getMousePos());
@@ -124,7 +123,7 @@ INLINE void toggleMouse(bool down, MMMouseButton button)
 #endif
 }
 
-INLINE void clickMouse(MMMouseButton button)
+void clickMouse(MMMouseButton button)
 {
 	toggleMouse(true, button);
 	toggleMouse(false, button);

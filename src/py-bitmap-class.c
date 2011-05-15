@@ -6,7 +6,6 @@
 #include "pasteboard.h"
 #include "str_io.h"
 #include "py-convenience.h"
-#include "keywords.h"
 #include <assert.h>
 #include <stdio.h>
 
@@ -332,7 +331,7 @@ static PyObject *Bitmap_from_string(PyObject *self, PyObject *args)
 /* -- Bitmap instance method definitions -- */
 
 /* Returns false and sets error if |bitmap| is NULL. */
-static INLINE bool Bitmap_Ready(BitmapObject *object)
+static bool Bitmap_Ready(BitmapObject *object)
 {
 	if (object->bitmap == NULL || object->bitmap->imageBuffer == NULL) {
 		PyErr_SetString(PyExc_ValueError, "No image data set");
@@ -344,9 +343,9 @@ static INLINE bool Bitmap_Ready(BitmapObject *object)
 /* Attempts to extract rect from tuple if |rectTuple| is not NULL, or uses
  * bounds of |bitmap| as a fallback. Returns false and sets error if rect could
  * not be extracted, or returns true if it could. */
-static INLINE bool rectFromTupleOrBitmap(MMBitmapRef bitmap,
-                                             PyObject *rectTuple,
-                                             MMRect *rect);
+static bool rectFromTupleOrBitmap(MMBitmapRef bitmap,
+                                  PyObject *rectTuple,
+                                  MMRect *rect);
 
 static PyObject *Bitmap_str(BitmapObject *self)
 {
@@ -651,9 +650,9 @@ static PyObject *Bitmap_count_of_bitmap(BitmapObject *self, PyObject *args)
 	                                              rect, tolerance));
 }
 
-static INLINE bool rectFromTupleOrBitmap(MMBitmapRef bitmap,
-                                         PyObject *rectTuple,
-                                         MMRect *rect)
+static bool rectFromTupleOrBitmap(MMBitmapRef bitmap,
+                                  PyObject *rectTuple,
+                                  MMRect *rect)
 {
 	assert(rect != NULL);
 

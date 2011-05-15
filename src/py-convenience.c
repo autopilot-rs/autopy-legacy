@@ -1,7 +1,6 @@
 #include "py-convenience.h"
-#include "keywords.h"
 
-INLINE int Py_AddClassToModule(PyObject *mod, PyTypeObject *classType)
+int Py_AddClassToModule(PyObject *mod, PyTypeObject *classType)
 {
 	if (PyType_Ready(classType) < 0) return -1;
 
@@ -24,7 +23,7 @@ void PyErr_SetFormatString(PyObject *type, size_t size,
 	free(str);
 }
 
-INLINE PyObject *Py_SetArgConvertErr(const char *expected, unsigned arg_count,
+PyObject *Py_SetArgConvertErr(const char *expected, unsigned arg_count,
                                      PyObject *obj)
 {
 	PyErr_SetFormatString(PyExc_TypeError, 130,
@@ -33,7 +32,7 @@ INLINE PyObject *Py_SetArgConvertErr(const char *expected, unsigned arg_count,
 	return NULL;
 }
 
-INLINE PyObject *Py_SetConvertErr(const char *expected, PyObject *obj)
+PyObject *Py_SetConvertErr(const char *expected, PyObject *obj)
 {
 	PyErr_SetFormatString(PyExc_TypeError, 123,
 	                      "argument must be %.50s, not %.50s",

@@ -3,7 +3,7 @@
 #define TYPES_H
 
 #include "os.h"
-#include "keywords.h" /* For H_INLINE definition */
+#include "inline_keywords.h" /* For H_INLINE */
 #include <stddef.h>
 
 /* Some generic, cross-platform types. */

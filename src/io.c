@@ -2,7 +2,6 @@
 #include "os.h"
 #include "bmp_io.h"
 #include "png_io.h"
-#include "keywords.h"
 #include <stdio.h> /* For fputs() */
 #include <string.h> /* For strcmp() */
 #include <ctype.h> /* For tolower() */
@@ -38,8 +37,9 @@ MMImageType imageTypeFromExtension(const char *extension)
 	}
 }
 
-INLINE MMBitmapRef newMMBitmapFromFile(const char *path, MMImageType type,
-                                       MMIOError *err)
+MMBitmapRef newMMBitmapFromFile(const char *path, 
+                                MMImageType type,
+                                MMIOError *err)
 {
 	switch (type) {
 		case kBMPImageType:
@@ -52,9 +52,9 @@ INLINE MMBitmapRef newMMBitmapFromFile(const char *path, MMImageType type,
 	}
 }
 
-INLINE int saveMMBitmapToFile(MMBitmapRef bitmap,
-                              const char *path,
-                              MMImageType type)
+int saveMMBitmapToFile(MMBitmapRef bitmap,
+                       const char *path,
+                       MMImageType type)
 {
 	switch (type) {
 		case kBMPImageType:
@@ -66,7 +66,7 @@ INLINE int saveMMBitmapToFile(MMBitmapRef bitmap,
 	}
 }
 
-INLINE const char *MMIOErrorString(MMImageType type, MMIOError error)
+const char *MMIOErrorString(MMImageType type, MMIOError error)
 {
 	switch (type) {
 		case kBMPImageType:

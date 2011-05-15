@@ -23,7 +23,8 @@ int findBitmapInRect(MMBitmapRef needle, MMBitmapRef haystack,
 /* Convenience wrapper around findAllBitmapInRect(), where |rect| is the bounds
  * of |haystack|. */
 #define findAllBitmapInBitmap(needle, haystack, tolerance) \
-	findAllBitmapInRect(needle, haystack, MMBitmapGetBounds(haystack), tolerance)
+	findAllBitmapInRect(needle, haystack, \
+			            MMBitmapGetBounds(haystack), tolerance)
 
 /* Returns MMPointArray of all occurrences of |needle| in |haystack| inside of
  * |rect|. Note that an is returned regardless of whether |needle| was found;

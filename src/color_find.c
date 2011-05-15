@@ -1,6 +1,5 @@
 #include "color_find.h"
 #include "screen.h"
-#include "keywords.h"
 #include <stdlib.h>
 
 /* Abstracted, general function to avoid repeated code. */
@@ -24,8 +23,8 @@ static int findColorInRectAt(MMBitmapRef image, MMRGBHex color, MMPoint *point,
 	return -1;
 }
 
-INLINE int findColorInRect(MMBitmapRef image, MMRGBHex color,
-                           MMPoint *point, MMRect rect, float tolerance)
+int findColorInRect(MMBitmapRef image, MMRGBHex color,
+                    MMPoint *point, MMRect rect, float tolerance)
 {
 	return findColorInRectAt(image, color, point, rect, tolerance, rect.origin);
 }
