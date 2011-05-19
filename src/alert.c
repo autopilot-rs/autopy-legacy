@@ -162,11 +162,11 @@ static int runTask(const char *taskname, char * const argv[], int *exit_status)
 			return FORK_FAILED; /* Failed to fork. */
 		case 0: /* Child process */
 			execvp(taskname, argv);
-			exit(1); /* Failed to run task. */
+			exit(42); /* Failed to run task. */
 		default: /* Parent process */
 			wait(&status); /* Block execution until finished. */
 
-			if (!WIFEXITED(status) || (status = WEXITSTATUS(status)) == 1) {
+			if (!WIFEXITED(status) || (status = WEXITSTATUS(status)) == 42) {
 				return EXEC_FAILED; /* Task failed to run. */
 			}
 			if (exit_status != NULL) *exit_status = status;
