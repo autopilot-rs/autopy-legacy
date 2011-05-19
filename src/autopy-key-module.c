@@ -144,7 +144,7 @@ static PyObject *key_tap(PyObject *self, PyObject *args)
 	PyObject *key;
 	MMKeyFlags flags = MOD_NONE;
 
-	if (!PyArg_ParseTuple(args, "O|K", &key, &flags)) return NULL;
+	if (!PyArg_ParseTuple(args, "O|I", &key, &flags)) return NULL;
 
 	if (PyNumber_Check(key)) { /* Check for key code */
 		MMKeyCode code;
