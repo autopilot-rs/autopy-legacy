@@ -96,9 +96,6 @@ def create_ext_modules(src_dir):
                         ]
 
         lflags = [
-                  '-fno-keep-inline-functions', # Don't keep copies of
-                                                # inline functions.
-                  '-finline-functions', # Inline any possible function.
                   # '-std=c89',
                   # '-pedantic', # Don't use gcc extensions
                  ]
