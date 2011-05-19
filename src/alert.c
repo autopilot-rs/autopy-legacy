@@ -139,7 +139,7 @@ static int xmessage(char *argv[], int *exit_status)
 	} else {
 		/* Otherwise, try running each xmessage alternative until one works or
 		 * we run out of options. */
-		int i;
+		size_t i;
 		for (i = 0; i < MSG_PROGS_LEN; ++i) {
 			prog = argv[0] = (char *)MSG_PROGS[i];
 			ret = runTask(prog, argv, exit_status);
