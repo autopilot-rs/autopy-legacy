@@ -9,6 +9,7 @@
 	#include <stdlib.h> /* For exit() */
 	#include <sys/wait.h> /* For wait() */
 	#include <unistd.h> /* For fork() */
+	#include <sys/types.h> /* For pid_t */
 #endif
 
 #if defined(USE_X11)
