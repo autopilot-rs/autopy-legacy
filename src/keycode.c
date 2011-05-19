@@ -4,7 +4,6 @@
 
 #include <CoreFoundation/CoreFoundation.h>
 #include <Carbon/Carbon.h> /* For kVK_ constants, and TIS functions. */
-#define CFStringEqual(s1, s2) (CFStringCompare(s1, s2, 0) == kCFCompareEqualTo)
 
 /* Returns string representation of key, if it is printable.
  * Ownership follows the Create Rule; that is, it is the caller's
