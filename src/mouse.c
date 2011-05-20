@@ -3,7 +3,7 @@
 #include "deadbeef_rand.h"
 #include "microsleep.h"
 
-#include <math.h> /* For hypot() */
+#include <math.h> /* For floor() */
 
 #if defined(IS_MACOSX)
 	#include <ApplicationServices/ApplicationServices.h>
@@ -124,6 +124,30 @@ void clickMouse(MMMouseButton button)
 	toggleMouse(false, button);
 }
 
+/*
+ * A crude, fast hypot() approximation to get around the fact that hypot() is
+ * not a standard ANSI C function.
+ *
+ * It is not particularly accurate but that does not matter for our use case.
+ *
+ * Taken from this StackOverflow answer:
+ * http://stackoverflow.com/questions/3506404/fast-hypotenuse-algorithm-for-embedded-processor#3507882
+ *
+ */
+static double crude_hypot(double x, double y)
+{
+	double big = fabs(x); /* max(|x|, |y|) */
+	double small = fabs(y); /* min(|x|, |y|) */
+
+	if (big > small) {
+		double temp = big;
+		big = small;
+		small = temp;
+	}
+
+	return ((M_SQRT2 - 1.0) * small) + big;
+}
+
 bool smoothlyMoveMouse(MMPoint endPoint)
 {
 	MMPoint pos = getMousePos();
@@ -131,15 +155,15 @@ bool smoothlyMoveMouse(MMPoint endPoint)
 	double velo_x = 0.0, velo_y = 0.0;
 	double distance;
 
-	while ((distance = hypot((double)pos.x - endPoint.x, 
-	                         (double)pos.y - endPoint.y)) > 1.0) {
+	while ((distance = crude_hypot((double)pos.x - endPoint.x,
+	                               (double)pos.y - endPoint.y)) > 1.0) {
 		double gravity = DEADBEEF_UNIFORM(5.0, 500.0);
 		double veloDistance;
 		velo_x += (gravity * (ssize_t)(endPoint.x - pos.x)) / distance;
 		velo_y += (gravity * (ssize_t)(endPoint.y - pos.y)) / distance;
 
 		/* Normalize velocity to get a unit vector of length 1. */
-		veloDistance = hypot(velo_x, velo_y);
+		veloDistance = crude_hypot(velo_x, velo_y);
 		velo_x /= veloDistance;
 		velo_y /= veloDistance;
 
