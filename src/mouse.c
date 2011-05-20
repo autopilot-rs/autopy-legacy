@@ -13,7 +13,6 @@
 
 #if defined(IS_WINDOWS)
 	#define usleep(x) Sleep((x) / 1000)
-	#define lround(x) (long int)floor(x + 0.5)
 #else
 	#include <unistd.h> /* For usleep() */
 #endif
@@ -147,8 +146,8 @@ bool smoothlyMoveMouse(MMPoint endPoint)
 		velo_x /= veloDistance;
 		velo_y /= veloDistance;
 
-		pos.x += lround(velo_x);
-		pos.y += lround(velo_y);
+		pos.x += (size_t)floor(velo_x + 0.5);
+		pos.y += (size_t)floor(velo_y + 0.5);
 
 		/* Make sure we are in the screen boundaries!
 		 * (Strange things will happen if we are not.) */
