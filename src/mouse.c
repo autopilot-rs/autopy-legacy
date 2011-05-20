@@ -1,7 +1,7 @@
 #include "mouse.h"
 #include "screen.h"
 #include "deadbeef_rand.h"
-#include "math.h" /* hypot() */
+#include <math.h> /* For hypot() */
 
 #if defined(IS_MACOSX)
 	#include <ApplicationServices/ApplicationServices.h>
