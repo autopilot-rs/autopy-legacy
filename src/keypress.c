@@ -1,12 +1,8 @@
 #include "keypress.h"
 #include "deadbeef_rand.h"
-#include <ctype.h> /* For isupper() */
+#include "microsleep.h"
 
-#if defined(IS_WINDOWS)
-	#define usleep(x) Sleep((x) / 1000)
-#else
-	#include <unistd.h> /* For usleep() */
-#endif
+#include <ctype.h> /* For isupper() */
 
 #if defined(IS_MACOSX)
 	#include <ApplicationServices/ApplicationServices.h>
@@ -28,7 +24,7 @@
 		 XFlush(display))
 	#define X_KEY_EVENT_WAIT(display, key, is_press) \
 		(X_KEY_EVENT(display, key, is_press), \
-		 usleep(DEADBEEF_RANDRANGE(0, 62501)))
+		 microsleep(DEADBEEF_UNIFORM(0.0, 62.5)))
 #endif
 
 void toggleKeyCode(MMKeyCode code, const bool down, MMKeyFlags flags)
@@ -127,13 +123,13 @@ void typeString(const char *str)
 void typeStringDelayed(const char *str, const unsigned cpm)
 {
 	/* Characters per second */
-	const float cps = (float)cpm / 60.0f;
+	const double cps = (double)cpm / 60.0;
 
-	/* Average micro-seconds per character */
-	const unsigned uspc = cps == 0.0f ? 0 : (unsigned)(1000000.0f / cps);
+	/* Average milli-seconds per character */
+	const double mspc = (cps == 0.0) ? 0.0 : 1000.0 / cps;
 
 	while (*str != '\0') {
 		tapUniKey(*str++);
-		usleep(uspc + (DEADBEEF_RANDRANGE(0, 62501)));
+		microsleep(mspc + (DEADBEEF_UNIFORM(0.0, 62.5)));
 	}
 }

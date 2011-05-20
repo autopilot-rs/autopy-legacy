@@ -1,6 +1,8 @@
 #include "mouse.h"
 #include "screen.h"
 #include "deadbeef_rand.h"
+#include "microsleep.h"
+
 #include <math.h> /* For hypot() */
 
 #if defined(IS_MACOSX)
@@ -9,15 +11,6 @@
 	#include <X11/Xlib.h>
 	#include <X11/extensions/XTest.h>
 	#include "xdisplay.h"
-#endif
-
-#if !defined(IS_WINDOWS)
-	/* Make sure nanosleep gets defined even when using C89. */
-	#if !defined(__USE_POSIX199309) || !__USE_POSIX199309
-		#define __USE_POSIX199309 1
-	#endif
-
-	#include <time.h> /* For nanosleep() */
 #endif
 
 #if defined(_MSC_VER)
@@ -131,23 +124,6 @@ void clickMouse(MMMouseButton button)
 	toggleMouse(false, button);
 }
 
-static void msleep(double milliseconds)
-{
-#if defined(WINDOWS)
-	Sleep(milliseconds)
-#else
-	/* Technically, nanosleep() is not an ANSI function, but it is the most
-	 * supported precise sleeping function I can find.
-	 *
-	 * If it is really necessary, it may be possible to emulate this with some
-	 * hack using select() in the future if we really have to. */
-	struct timespec time;
-	time.tv_sec = milliseconds / 1000;
-	time.tv_nsec = (milliseconds - (time.tv_sec * 1000)) * 1000000;
-	nanosleep(&time, NULL);
-#endif
-}
-
 bool smoothlyMoveMouse(MMPoint endPoint)
 {
 	MMPoint pos = getMousePos();
@@ -178,7 +154,7 @@ bool smoothlyMoveMouse(MMPoint endPoint)
 		moveMouse(pos);
 
 		/* Wait 1 - 3 milliseconds. */
-		msleep(DEADBEEF_UNIFORM(1.0, 3.0));
+		microsleep(DEADBEEF_UNIFORM(1.0, 3.0));
 	}
 
 	return true;
