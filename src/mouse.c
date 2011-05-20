@@ -131,7 +131,8 @@ bool smoothlyMoveMouse(MMPoint endPoint)
 	double velo_x = 0.0, velo_y = 0.0;
 	double distance;
 
-	while ((distance = hypot(pos.x - endPoint.x, pos.y - endPoint.y)) > 1.0) {
+	while ((distance = hypot((double)pos.x - endPoint.x, 
+	                         (double)pos.y - endPoint.y)) > 1.0) {
 		double gravity = DEADBEEF_UNIFORM(5.0, 500.0);
 		double veloDistance;
 		velo_x += (gravity * (ssize_t)(endPoint.x - pos.x)) / distance;
