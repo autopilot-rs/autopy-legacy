@@ -34,13 +34,13 @@ uint8_t *base64decode(const uint8_t *src, const size_t buflen, size_t *retlen)
 	int8_t digit, lastdigit;
 	size_t i, j;
 	uint8_t *decoded;
+	const size_t maxlen = ((buflen + 3) / 4) * 3;
 
 	/* Sanity check */
 	assert(src != NULL);
-	if ((buflen % 4) != 0) return NULL; /* Invalid padding */
 
 	digit = lastdigit = j = 0;
-	decoded = malloc(((buflen / 4) * 3) + 1);
+	decoded = malloc(maxlen + 1);
 	if (decoded == NULL) return NULL;
 	for (i = 0; i < buflen; ++i) {
 		if ((digit = b64_decode_table[src[i]]) != -1) {
