@@ -164,7 +164,7 @@ Pretty cool, huh?
 
 ### Working with Bitmaps
 
-All of autopy's bitmap routines can be found in the function `autopy.bitmap` (more specifically, most are found in the class `autopy.bitmap.Bitmap`). A useful way to explore autopy is to use Python's built-in `help()` function, for example in `help(autopy.bitmap.Bitmap)`. All of autopy's functions are documented with descriptive docstrings, so this should show a nice overview.
+All of autopy's bitmap routines can be found in the module `autopy.bitmap` (more specifically, most are found in the class `autopy.bitmap.Bitmap`). A useful way to explore autopy is to use Python's built-in `help()` function, for example in `help(autopy.bitmap.Bitmap)`. All of autopy's functions are documented with descriptive docstrings, so this should show a nice overview.
 
 There are currently three ways to load a bitmap in autopy: 1.) by taking a screenshot, 2.) by loading a file, or 3.) by parsing a string. The first is probably the most obvious, so I'll start by showing that:
 
