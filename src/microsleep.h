@@ -22,7 +22,7 @@
  */
 H_INLINE void microsleep(double milliseconds)
 {
-#if defined(WINDOWS)
+#if defined(IS_WINDOWS)
 	Sleep(milliseconds); /* (Unfortunately truncated to a 32-bit integer.) */
 #else
 	/* Technically, nanosleep() is not an ANSI function, but it is the most
