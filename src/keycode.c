@@ -57,7 +57,7 @@ struct XSpecialCharacterMapping XSpecialCharacterTable[] = {
   	{' ', XK_space},
   	{'/', XK_slash},
   	{'\t', XK_Tab},
-  	{'\n', XK_Return},
+  	{'\n', XK_Return}
 };
 
 #endif
