@@ -4,9 +4,18 @@
 #define PORTABLE_SNPRINTF_VERSION_MAJOR 2
 #define PORTABLE_SNPRINTF_VERSION_MINOR 2
 
+#include "os.h"
+#if defined(IS_MACOSX)
+	#define HAVE_SNPRINTF
+#elif defined(IS_WINDOWS)
+	#define HAVE_SNPRINTF
+	#define PREFER_PORTABLE_SNPRINTF
+#endif
+
 #ifdef HAVE_SNPRINTF
 #include <stdio.h>
 #else
+#include <stddef.h>
 #include <stdarg.h>
 extern int snprintf(char *, size_t, const char *, /*args*/ ...);
 extern int vsnprintf(char *, size_t, const char *, va_list);

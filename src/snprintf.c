@@ -316,6 +316,7 @@
 #define LINUX_COMPATIBLE
 #endif
 
+#include "snprintf.h"
 #include <sys/types.h>
 #include <string.h>
 #include <stdlib.h>
