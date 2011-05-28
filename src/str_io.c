@@ -129,8 +129,9 @@ uint8_t *createStringFromMMBitmap(MMBitmapRef bitmap, MMBMPStringError *err)
 
 	retlen += 3 + (MAX_DIMENSION_LEN * 2);
 	ret = calloc(sizeof(char), (retlen + 1));
-	snprintf((char *)ret, retlen, "b%lu,%lu,%s", bitmap->width,
-	                                             bitmap->height, encoded);
+	snprintf((char *)ret, retlen, "b%lu,%lu,%s", (unsigned long)bitmap->width,
+	                                             (unsigned long)bitmap->height,
+												 encoded);
 	ret[retlen] = '\0';
 	free(encoded);
 	return ret;

@@ -350,11 +350,11 @@ static bool rectFromTupleOrBitmap(MMBitmapRef bitmap,
 static PyObject *Bitmap_str(BitmapObject *self)
 {
 	if (!Bitmap_Ready(self)) return NULL;
-	return PyString_FromFormat("<Bitmap object at %p with resolution %lux%lu, "
-	                           "%d bits per pixel, and %d bytes per pixel>",
+	return PyString_FromFormat("<Bitmap object at %p with resolution %lu%lu, "
+	                           "%u bits per pixel, and %u bytes per pixel>",
 	                           self,
-	                           self->bitmap->width,
-	                           self->bitmap->height,
+	                           (unsigned long)self->bitmap->width,
+	                           (unsigned long)self->bitmap->height,
 	                           self->bitmap->bitsPerPixel,
 	                           self->bitmap->bytesPerPixel);
 }
