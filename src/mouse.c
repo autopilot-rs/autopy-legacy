@@ -167,8 +167,8 @@ bool smoothlyMoveMouse(MMPoint endPoint)
 		velo_x /= veloDistance;
 		velo_y /= veloDistance;
 
-		pos.x += (size_t)floor(velo_x + 0.5);
-		pos.y += (size_t)floor(velo_y + 0.5);
+		pos.x += floor(velo_x + 0.5);
+		pos.y += floor(velo_y + 0.5);
 
 		/* Make sure we are in the screen boundaries!
 		 * (Strange things will happen if we are not.) */
