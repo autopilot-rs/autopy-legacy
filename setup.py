@@ -215,18 +215,6 @@ EXT_MODULES = create_ext_modules('src/')
 modules_names = [ext_modules.name for ext_modules in EXT_MODULES]
 create_package_dir(PACKAGE_NAME, PACKAGE_DESCRIPTION, modules_names)
 
-if USE_WINDOWS:
-    # Ensure data files are installed to site-packages directory.
-    from distutils.command.install import INSTALL_SCHEMES
-    for scheme in INSTALL_SCHEMES.values():
-        scheme['data'] = scheme['purelib']
-
-    # Copy all files in Windows directory.
-    from glob import glob
-    DATA_FILES = [(PACKAGE_NAME, glob('windows/data_files/*'))]
-else:
-    DATA_FILES = []
-
 setup(name=PACKAGE_NAME,
       version='0.43b',
       author='Michael Sanders',
@@ -237,5 +225,4 @@ setup(name=PACKAGE_NAME,
       platforms=('Mac OS X 10.5+', 'X11 with XTest Extension', 'Win32'),
       packages=[PACKAGE_NAME],
       ext_package=PACKAGE_NAME,
-      ext_modules=EXT_MODULES,
-      data_files=DATA_FILES)
+      ext_modules=EXT_MODULES)

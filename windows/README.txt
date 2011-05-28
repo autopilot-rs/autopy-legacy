@@ -1,3 +1,24 @@
-This directory includes libraries and a DLL for libpng and zlib on Windows. Originally I attempted to use the GnuWin32 variants, but the libpng binaries were crash-prone so I've compiled my own here. The result is that you do not have to install GnuWin32, zlib, or libpng yourself at all -- just build with the setup.py script and it will take care of the rest.
+This directory contains statically compiled binaries of libpng 1.5.2 and zlib
+1.2.5. They were compiled using the "visualc71" project in the libpng 1.5.2
+source[1] on Microsoft Visual Studio 2008.
 
-Every file in the "data_files" directory gets copied into the site-packages/automan directory (i.e., where the package gets installed to). Currently this is only a DLL required to use zlib.
+The following settings were used:
+
+1.) The instructions stated in README.txt in the visual71 directory were
+followed.
+
+2.) The "Lib Release" Configuration was set for both libpng and zlib (pngtest
+was not built).
+
+3.) For both libpng and zlib, on the Property Pages dialog under Configuration
+Properties > Library > General, "uuid.lib" was set under "Ignore Specific
+Library" in order to avoid a linking error.
+
+4.) In addition, under Configuration Properties > C/C++ > Optimization, "Favor
+Small Code" was selected in order to produce smaller binaries.
+
+Using this approach, no external libraries or DLLs should be required for the
+user to install (outside of those already installed by Python).
+
+[1]: (Download: http://prdownloads.sourceforge.net/libpng/lpng152.zip?download
+      Path: "projects/visualc71")
