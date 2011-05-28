@@ -65,7 +65,7 @@ def create_ext_modules(src_dir):
                                        'py-convenience.c', 'py-bitmap-class.c',
                                        'MMBitmap.c',
                                        'io.c', 'bmp_io.c',
-                                       'png_io.c', 'str_io.c',
+                                       'png_io.c', 'str_io.c', 'snprintf.c',
                                        'screengrab.c', 'screen.c',
                                        'pasteboard.c', 'color_find.c',
                                        'bitmap_find.c', 'UTHashTable.c',
@@ -141,6 +141,8 @@ def create_ext_modules(src_dir):
         for dir in '/usr/X11/lib', '/usr/X1186/lib':
             if os.path.exists(dir):
                 libdirs.append(dir)
+
+        modules['alert']['files'].append('snprintf.c')
 
         # Add X11-specific #define's.
         macros.append(('USE_X11', None))
