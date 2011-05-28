@@ -30,10 +30,10 @@ H_INLINE void microsleep(double milliseconds)
 	 *
 	 * If it is really necessary, it may be possible to emulate this with some
 	 * hack using select() in the future if we really have to. */
-	struct timespec time;
-	time.tv_sec = milliseconds / 1000;
-	time.tv_nsec = (milliseconds - (time.tv_sec * 1000)) * 1000000;
-	nanosleep(&time, NULL);
+	struct timespec sleepytime;
+	sleepytime.tv_sec = milliseconds / 1000;
+	sleepytime.tv_nsec = (milliseconds - (sleepytime.tv_sec * 1000)) * 1000000;
+	nanosleep(&sleepytime, NULL);
 #endif
 }
 
