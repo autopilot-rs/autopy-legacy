@@ -17,6 +17,10 @@
 	#define ssize_t SSIZE_T /* sigh */
 #endif
 
+#if !defined(M_SQRT2)
+	#define M_SQRT2 1.4142135623730950488016887 /* Fix for MSVC. */
+#endif
+
 void moveMouse(MMPoint point)
 {
 #if defined(IS_MACOSX)
