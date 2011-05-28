@@ -13,10 +13,6 @@
 	#include "xdisplay.h"
 #endif
 
-#if defined(_MSC_VER)
-	#define ssize_t SSIZE_T /* sigh */
-#endif
-
 #if !defined(M_SQRT2)
 	#define M_SQRT2 1.4142135623730950488016887 /* Fix for MSVC. */
 #endif
@@ -163,8 +159,8 @@ bool smoothlyMoveMouse(MMPoint endPoint)
 	                               (double)pos.y - endPoint.y)) > 1.0) {
 		double gravity = DEADBEEF_UNIFORM(5.0, 500.0);
 		double veloDistance;
-		velo_x += (gravity * (ssize_t)(endPoint.x - pos.x)) / distance;
-		velo_y += (gravity * (ssize_t)(endPoint.y - pos.y)) / distance;
+		velo_x += (gravity * ((double)endPoint.x - pos.x)) / distance;
+		velo_y += (gravity * ((double)endPoint.y - pos.y)) / distance;
 
 		/* Normalize velocity to get a unit vector of length 1. */
 		veloDistance = crude_hypot(velo_x, velo_y);
