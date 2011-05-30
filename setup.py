@@ -213,9 +213,12 @@ def create_ext_modules(src_dir):
                                      extra_link_args=extra_link_args))
     return ext_modules
 
-PACKAGE_NAME='autopy'
-PACKAGE_DESCRIPTION='A simple toolkit for automating and scripting repetitive ' \
-                    'tasks, especially those involving a GUI, with Python.'
+PACKAGE_NAME = 'autopy'
+PACKAGE_DESCRIPTION = \
+'''AutoPy is a simple, cross-platform GUI automation toolkit for Python. It
+includes functions for controlling the keyboard and mouse, finding colors 
+and bitmaps on-screen, and displaying alerts -- all in a cross-platform, 
+efficient, and simple manner.'''
 EXT_MODULES = create_ext_modules('src/')
 
 # Create __init__ directory
@@ -228,7 +231,8 @@ setup(name=PACKAGE_NAME,
       author_email='msanders42+autopy [at] gmail [dot] com',
       url='http://autopy.org',
       license='MIT',
-      description=PACKAGE_DESCRIPTION,
+      description='A simple, cross-platform GUI automation toolkit for Python.',
+      long_description=PACKAGE_DESCRIPTION,
       platforms=('Mac OS X 10.5+', 'X11 with XTest Extension', 'Windows'),
       packages=[PACKAGE_NAME],
       ext_package=PACKAGE_NAME,
