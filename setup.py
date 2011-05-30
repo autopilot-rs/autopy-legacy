@@ -88,7 +88,7 @@ def create_ext_modules(src_dir):
         warning_flags = [
                          '-Wall',
                          '-Wparentheses',
-                         '-Wsign-compare',
+                         # '-Wsign-compare',
                          '-Winline',
                          '-Wbad-function-cast',
                          '-Wdisabled-optimization',
