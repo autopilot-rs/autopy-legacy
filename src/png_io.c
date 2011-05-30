@@ -195,8 +195,8 @@ static PNGWriteInfoRef createPNGWriteInfo(MMBitmapRef bitmap)
 	/* Set image attributes. */
 	png_set_IHDR(info->png_ptr,
 	             info->info_ptr,
-	             bitmap->width,
-	             bitmap->height,
+	             (png_uint_32)bitmap->width,
+	             (png_uint_32)bitmap->height,
 	             8,
 	             PNG_COLOR_TYPE_RGB,
 	             PNG_INTERLACE_NONE,

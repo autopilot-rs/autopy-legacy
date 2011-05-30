@@ -30,7 +30,7 @@ uint8_t *zlib_decompress(const uint8_t *buf, size_t *len)
 	/* Decompress input buffer */
 	do {
 		if ((err = inflate(&zst, Z_NO_FLUSH)) == Z_OK) { /* Need more memory */
-			zst.avail_out = output_size;
+			zst.avail_out = (uInt)output_size;
 
 			/* Double size each time to avoid calls to realloc() */
 			output_size <<= 1;
@@ -67,7 +67,7 @@ uint8_t *zlib_compress(const uint8_t *buf, const size_t buflen, int level,
 	assert(len != NULL);
 	assert(level <= 9 && level >= 0);
 
-	zst.avail_out = (buflen + (buflen / 10)) + 12;
+	zst.avail_out = (uInt)((buflen + (buflen / 10)) + 12);
 	output = malloc(zst.avail_out);
 	if (output == NULL) return NULL;
 
@@ -76,7 +76,7 @@ uint8_t *zlib_compress(const uint8_t *buf, const size_t buflen, int level,
 	zst.zfree = Z_NULL;
 	zst.next_out = (Byte *)output;
 	zst.next_in = (Byte *)buf;
-	zst.avail_in = buflen;
+	zst.avail_in = (uInt)buflen;
 
 	if (deflateInit(&zst, level) != Z_OK) goto error;
 

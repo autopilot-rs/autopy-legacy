@@ -104,12 +104,12 @@ MMBitmapRef copyMMBitmapFromDisplayInRect(MMRect rect)
 
 	/* Initialize bitmap info. */
 	bi.bmiHeader.biSize = sizeof(bi.bmiHeader);
-   	bi.bmiHeader.biWidth = rect.size.width;
+   	bi.bmiHeader.biWidth = (long)rect.size.width;
    	bi.bmiHeader.biHeight = -(long)rect.size.height; /* Non-cartesian, please */
    	bi.bmiHeader.biPlanes = 1;
    	bi.bmiHeader.biBitCount = 32;
    	bi.bmiHeader.biCompression = BI_RGB;
-   	bi.bmiHeader.biSizeImage = 4 * rect.size.width * rect.size.height;
+   	bi.bmiHeader.biSizeImage = (DWORD)(4 * rect.size.width * rect.size.height);
 	bi.bmiHeader.biXPelsPerMeter = 0;
 	bi.bmiHeader.biYPelsPerMeter = 0;
 	bi.bmiHeader.biClrUsed = 0;
@@ -124,8 +124,11 @@ MMBitmapRef copyMMBitmapFromDisplayInRect(MMRect rect)
 	/* Copy the data into a bitmap struct. */
 	if ((screenMem = CreateCompatibleDC(screen)) == NULL ||
 	    SelectObject(screenMem, dib) == NULL ||
-	    !BitBlt(screenMem, rect.origin.x, rect.origin.y, rect.size.width,
-	            rect.size.height, screen, 0, 0, SRCCOPY)) {
+	    !BitBlt(screenMem, 
+	            (int)rect.origin.x, 
+	            (int)rect.origin.y, 
+	            (int)rect.size.width,
+	            (int)rect.size.height, screen, 0, 0, SRCCOPY)) {
 		/* Error copying data. */
 		ReleaseDC(NULL, screen);
 		DeleteObject(dib);
@@ -138,7 +141,8 @@ MMBitmapRef copyMMBitmapFromDisplayInRect(MMRect rect)
 	                        rect.size.width,
 	                        rect.size.height,
 	                        4 * rect.size.width,
-	                        bi.bmiHeader.biBitCount, 4);
+	                        (uint8_t)bi.bmiHeader.biBitCount, 
+	                        4);
 
 	/* Copy the data to our pixel buffer. */
 	if (bitmap != NULL) {

@@ -270,8 +270,8 @@ uint8_t *createBitmapData(MMBitmapRef bitmap, size_t *len)
 	/* Save top header. */
 	fileHeader = (struct BITMAP_FILE_HEADER *)data;
 	fileHeader->magic = BMP_MAGIC;
-	fileHeader->fileSize = sizeof(*dibHeader) + imageSize;
-	fileHeader->imageOffset = imageOffset;
+	fileHeader->fileSize = (uint32_t)(sizeof(*dibHeader) + imageSize);
+	fileHeader->imageOffset = (uint32_t)imageOffset;
 
 	/* BMP files are always stored as little-endian, so we need to convert back
 	 * if necessary. */
@@ -280,12 +280,12 @@ uint8_t *createBitmapData(MMBitmapRef bitmap, size_t *len)
 	/* Copy Windows v3 header. */
 	dibHeader = (struct BITMAP_INFO_HEADER *)(data + sizeof(*fileHeader));
 	dibHeader->headerSize = sizeof(*dibHeader); /* Should always be 40. */
-	dibHeader->width = bitmap->width;
+	dibHeader->width = (int32_t)bitmap->width;
 	dibHeader->height = -(int32_t)bitmap->height; /* Our bitmaps are "flipped". */
 	dibHeader->colorPlanes = 1;
 	dibHeader->bitsPerPixel = bitmap->bitsPerPixel;
 	dibHeader->compression = kBMP_RGB; /* Don't save with compression. */
-	dibHeader->imageSize = imageSize;
+	dibHeader->imageSize = (uint32_t)imageSize;
 
 	convertBitmapInfoHeader(dibHeader);
 

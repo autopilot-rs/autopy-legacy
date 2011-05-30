@@ -34,7 +34,7 @@ void moveMouse(MMPoint point)
 	point.x *= 0xFFFF / GetSystemMetrics(SM_CXSCREEN);
 	point.y *= 0xFFFF / GetSystemMetrics(SM_CYSCREEN);
 	mouse_event(MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MOVE,
-	            point.x, point.y, 0, 0);
+	            (DWORD)point.x, (DWORD)point.y, 0, 0);
 #endif
 }
 
