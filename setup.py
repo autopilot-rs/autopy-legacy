@@ -169,6 +169,13 @@ def create_ext_modules(src_dir):
         # We store Windows libraries and headers in our own custom folder.
         win_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                'windows')
+
+
+        # Libraries are statically compiled for their architecture.
+        win_dir = os.path.join(win_dir,
+                               'win64' if platform.architecture()[0] == '64bit'
+                                       else 'win32')
+
         if not os.path.isdir(win_dir):
             raise IOError('windows directory not found at: "%s"' % win_dir)
 
