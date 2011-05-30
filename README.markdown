@@ -7,8 +7,7 @@ by Michael Sanders
 
 * Introduction
 	- What is AutoPy?
-	- Why use AutoPy?
-	- What else is AutoPy?
+	- How so?
 * Getting Started
 	- Requirements
 	- Installation
@@ -30,31 +29,22 @@ by Michael Sanders
 
 ### What is AutoPy?
 
-AutoPy is a simple toolkit for automating and scripting repetitive tasks, especially those involving a GUI, with Python. It includes functions for controlling the mouse and keyboard, finding colors and bitmaps on-screen, as well as displaying cross-platform alerts.
+AutoPy is a simple, cross-platform GUI automation toolkit for Python. It includes functions for controlling the keyboard and mouse, finding colors and bitmaps on-screen, and displaying alerts -- all in a cross-platform, efficient, and simple manner.
 
-<div id="why-autopy"></div>
+<div id="how-so"></div>
 
-### Why use AutoPy?
-
-* Testing a GUI application for bugs and edge cases
-	- You might think your app is stable, but what happens if you press that button _5000 times_?
-* Automating games
-	- Writing a script to beat that crappy flash game can be _so_ much more gratifying than spending hours playing it yourself.
-* Freaking out friends and family
-	- Well maybe this isn't really a practical use, _but_...
-
-<div id="what-else-autopy"></div>
-
-### What else is AutoPy?
+### How so?
 
 * Portable
 	- Works on Mac OS X, Windows, and X11.
-* Fast
+* Efficient
 	- Written in pure ANSI C.
 * Simple
-	- AutoPy is designed as a _toolkit_, not a _framework_ -- it doesn't get in your way. At the same time, convenience functions are provided where useful.
+	- AutoPy is designed as a _toolkit_, not a _framework_ -- it doesn't get in your way. At the same time, convenience functions are provided where useful.*
 * Easy
 	- AutoPy is designed to be simple and easy-to-understand, both for the end user and the implementor; that is, both the public API and the internals are straightforward and well-documented. It should be easy to pick up, and easy to modify if you need.
+
+\* (Note that this leaves the door wide open for frameworks built _off_ of AutoPy; for instance, a library could be written for a more specific task, such as automating a game, that uses AutoPy as its backbone. This allows framework writers to take advantage of all the above qualities while having the luxury of writing in Python.)
 
 <div id="autopy-getting-started"></div>
 
