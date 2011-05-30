@@ -69,30 +69,26 @@ AutoPy is a simple, cross-platform GUI automation toolkit for Python. It include
 
 ### Installation
 
-#### Binary Installers
+Installers for Windows are available here: http://pypi.python.org/pypi/autopy/.
 
-AutoPy installers are currently available for [Leopard](https://github.com/downloads/msanders/autopy/autopy-leopard.pkg), [Snow Leopard](https://github.com/downloads/msanders/autopy/autopy-snowleopard.pkg), and [Windows](https://github.com/downloads/msanders/autopy/autopy-win32-py26.exe). For other platforms, you will have to compile it yourself &#8212; fortunately, this is a relatively easy task.
+For every other OS, the simplest method is to use the `easy_install` utility:
 
-#### Installing from Source
+	easy_install autopy
 
-Check out the latest code:
+Another option is to compile from the latest source on the GitHub repository:
 
 	$ git clone git://github.com/msanders/autopy.git
-
-Compile it:
-
 	$ cd autopy
 	$ python setup.py build
-
-Install it:
-
 	# python setup.py install
+
+When building from source, make sure to `cd` out of the autopy directory before attempting to use AutoPy or else it may fail on an `ImportError` due to Python's relative imports.
 
 <div id="autopy-helloworld"></div>
 
 ### Hello World
 
-The following is the full source for a "hello world" script in autopy. Running this code will cause an alert dialog to appear on every major platform (make sure you `cd` out of the build directory before trying this or it may fail on an `ImportError` due to Python's relative imports):
+The following is the full source for a "hello world" script in autopy. Running this code will cause an alert dialog to appear on every major platform:
 
 	import autopy
 	def hello_there_world():
