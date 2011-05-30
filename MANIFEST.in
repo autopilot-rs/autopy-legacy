@@ -1,0 +1,3 @@
+include MANIFEST.in
+include src/*.c
+include src/*.h
