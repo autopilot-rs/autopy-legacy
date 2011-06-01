@@ -97,7 +97,7 @@ bitmap.capture_screen_portion(rect).get_color(0, 0)
                 <tt class="var">OSError</tt> is thrown if the system calls were unsuccessful.
               </li>
               <li>
-                <tt class="var">ValueError</tt> is thrown if the point is out of bounds.
+                <tt class="var">ValueError</tt> is thrown if the <tt class="keyword">rect</tt> is out of bounds.
               </li>
             </ul>
           </dd>
@@ -105,13 +105,15 @@ bitmap.capture_screen_portion(rect).get_color(0, 0)
       </div>
     </div>
 
-    <!-- Analytics -->
-	<script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
-    <script type="text/javascript">
+	<!-- Analytics --> 
+	<script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script> 
+    <script type="text/javascript"> 
+		//<![CDATA[
         try {
             var tracker = _gat._getTracker("UA-7469847-4");
             tracker._trackPageview();
         } catch(err) {}
+		//]]>
     </script>
   </body>
 </html>
