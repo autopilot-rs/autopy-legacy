@@ -29,9 +29,6 @@
                 <a href="#Bitmap_object_methods">Bitmap object methods</a>
                 <ul>
                   <li>
-                    <a href="#bmp.get_portion">bmp.get_portion</a>
-                  </li>
-                  <li>
                     <a href="#bmp.find_bitmap">bmp.find_bitmap</a>
                   </li>
                   <li>
@@ -54,6 +51,9 @@
                   </li>
                   <li>
                     <a href="#bmp.get_color">bmp.get_color</a>
+                  </li>
+                  <li>
+                    <a href="#bmp.get_portion">bmp.get_portion</a>
                   </li>
                   <li>
                     <a href="#Bitmap.from_string">Bitmap.from_string</a>
@@ -102,25 +102,6 @@
           Bitmap Object Methods<a href="#Bitmap_object_methods" class="headerlink" title="Permalink to this headline">¶</a>
         </h2>
         <dl class="section">
-          <dt class="function" id="bmp.get_portion">
-            <tt class="name">bmp.get_portion</tt><big>(</big><span class="funcarg">origin</span>, <span class="funcarg">size</span><big>)</big><a href="#bmp.get_portion" class="headerlink" title="Permalink to this headline">¶</a>
-          </dt>
-          <dd>
-            <p>
-              Returns new bitmap object created from a portion of another.
-            </p>
-            <div class="exceptions-header">
-              Exceptions:
-            </div>
-            <ul class="exceptions">
-              <li>
-                <tt class="var">IOError</tt> is thrown if portion could not be copied.
-              </li>
-              <li>
-                <tt class="var">ValueError</tt> is thrown if portion was out of bounds.
-              </li>
-            </ul>
-          </dd>
           <dt class="function" id="bmp.find_bitmap">
             <tt class="name">bmp.find_bitmap</tt><big>(</big><span class="funcarg">needle</span>, <span class="funcarg">tolerance=0.0</span>, <span class="funcarg">rect=None</span><big>)</big><a href="#bmp.find_bitmap" class="headerlink" title="Permalink to this headline">¶</a>
           </dt>
@@ -209,6 +190,23 @@ len(bmp.find_every_bitmap(needle, tolerance))
             <ul class="exceptions">
               <li>
                 <tt class="var">ValueError</tt> is thrown if the point out of bounds.
+              </li>
+            </ul>
+          </dd>
+          <dt class="function" id="bmp.get_portion">
+            <tt class="name">bmp.get_portion</tt><big>(</big><span class="funcarg">origin</span>, <span class="funcarg">size</span><big>)</big><a href="#bmp.get_portion" class="headerlink" title="Permalink to this headline">¶</a>
+          </dt>
+          <dd>
+            <p>
+              Returns new bitmap object created from a portion of another.
+            </p>
+            <div class="exceptions-header">
+              Exceptions:
+            </div>
+            <ul class="exceptions">
+              <li>
+                <tt class="var">ValueError</tt> is thrown if the portion was out of bounds.
+                <tt class="var">IOError</tt> is thrown if the portion could not be copied.
               </li>
             </ul>
           </dd>
