@@ -95,7 +95,7 @@ The following is the full source for a "hello world" script in autopy. Running t
 	    autopy.alert.alert("Hello, world")
 	hello_there_world()
 
-![Cross platform alerts](https://github.com/downloads/msanders/autopy/alerts.png)
+![Cross platform alerts](https://github.com/msanders/autopy/raw/gh-pages/alerts.png)
 
 <div id="autopy-tutorials"></div>
 
@@ -142,7 +142,7 @@ Even better, we could write our own function to move the mouse across the screen
 
 	sine_mouse_wave()
 
-<a href="http://autopy.org/documentation/sine-wave"><img src="https://github.com/downloads/msanders/autopy/sine-move-mouse-thumbnail.jpg" alt="Demonstration video"/></a>
+<a href="http://autopy.org/documentation/sine-wave"><img src="https://github.com/msanders/autopy/raw/gh-pages/sine-move-mouse-thumbnail.jpg" alt="Demonstration video"/></a>
 
 Pretty cool, huh?
 
