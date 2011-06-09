@@ -10,20 +10,28 @@
 	<style type="text/css" media="screen">
 		body {font-family:"Helvetica Neue", sans-serif;}
 	</style>
+
+	<!-- Analytics -->
+	<script type="text/javascript">
+		//<![CDATA[
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-7469847-10']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script');
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 
+				'http://www') + '.google-analytics.com/ga.js';
+			ga.setAttribute('async', 'true');
+			document.documentElement.firstChild.appendChild(ga);
+		})();
+		//]]>
+	</script>
 </head>
 <body>
 
 <a href="sine-move-mouse.mov" rel="qtposter">
 	<img src="sine-move-mouse.jpg" width="640" height="416" />
 </a>
-
-	<!-- Analytics -->
-	<script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		try {
-			var tracker = _gat._getTracker("UA-7469847-4");
-			tracker._trackPageview();
-		} catch(err) {}
-	</script>
 </body>
 </html>

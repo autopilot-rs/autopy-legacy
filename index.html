@@ -14,6 +14,23 @@
 		a:active {color:#3C8FCD;}
 		a:hover { text-decoration:none; }
 	</style>
+
+	<!-- Analytics -->
+	<script type="text/javascript">
+		//<![CDATA[
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-7469847-10']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script');
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
+				'http://www') + '.google-analytics.com/ga.js';
+			ga.setAttribute('async', 'true');
+			document.documentElement.firstChild.appendChild(ga);
+		})();
+		//]]>
+	</script>
 </head>
 	<body>
 		<h1>AutoPy</h1>
@@ -24,16 +41,5 @@
 			<li><a href="http://pypi.python.org/pypi/autopy/">Python Package</a></li>
 			<li><a href="https://github.com/msanders/autopy/">GitHub Repository</a></li>
 		</ul>
-
-		<!-- Analytics -->
-		<script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
-		<script type="text/javascript">
-			//<![CDATA[
-			try {
-				var tracker = _gat._getTracker("UA-7469847-4");
-				tracker._trackPageview();
-			} catch(err) {}
-			//]]>
-		</script>
 	</body>
 </html>
