@@ -51,7 +51,7 @@ MMBitmapRef newMMBitmapFromPNG(const char *path, MMPNGReadError *err)
 	if (fread(header, 1, sizeof header, fp) == 0) {
 		if (err != NULL) *err = kPNGReadError;
 		goto bail;
-	} else if (png_sig_cmp(header, 0, sizeof(header)) == 0) {
+	} else if (png_sig_cmp(header, 0, sizeof(header)) != 0) {
 		if (err != NULL) *err = kPNGInvalidHeaderError;
 		goto bail;
 	}
