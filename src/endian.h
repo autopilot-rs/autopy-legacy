@@ -100,7 +100,7 @@
 	#endif /* bitswap32 */
 #endif
 
-#if __BYTE_ORDER == __LITTLE_ENDIAN
+#if __BYTE_ORDER == __BIG_ENDIAN
 	/* Little endian to/from host byte order (big endian). */
 	#ifndef swapLittleAndHost16
 		#define swapLittleAndHost16(i) bitswap16(i)
@@ -109,14 +109,14 @@
 	#ifndef swapLittleAndHost32
 		#define swapLittleAndHost32(i) bitswap32(i)
 	#endif /* swapLittleAndHost32 */
-#elif __BYTE_ORDER == __BIG_ENDIAN
+#elif __BYTE_ORDER == __LITTLE_ENDIAN
 	/* We are already little endian, so no conversion is needed. */
 	#ifndef swapLittleAndHost16
-		#define swapLittleAndHost16(i)
+		#define swapLittleAndHost16(i) i
 	#endif /* swapLittleAndHost16 */
 
 	#ifndef swapLittleAndHost32
-		#define swapLittleAndHost32(i)
+		#define swapLittleAndHost32(i) i
 	#endif /* swapLittleAndHost32 */
 #endif
 
