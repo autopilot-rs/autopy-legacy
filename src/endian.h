@@ -24,22 +24,31 @@
 	#define __BIG_ENDIAN BIG_ENDIAN
 	#define __LITTLE_ENDIAN LITTLE_ENDIAN
 	#define __BYTE_ORDER BYTE_ORDER
-#elif defined(MM_BIG_ENDIAN) || defined(MM_LITTLE_ENDIAN) /* Fallback to
-                                                           * custom constants */
-	#define __BIG_ENDIAN 4321
-	#define __LITTLE_ENDIAN 1234
-	#if defined(MM_BIG_ENDIAN)
-		#define __BYTE_ORDER  __BIG_ENDIAN
-	#elif defined(MM_LITTLE_ENDIAN)
-		#define __BYTE_ORDER __LITTLE_ENDIAN
-	#endif
-#elif defined(IS_WINDOWS) /* Windows is assumed to be little endian only */
+#elif defined(IS_WINDOWS) /* Windows is assumed to be little endian only. */
 	#define __BIG_ENDIAN 4321
 	#define __LITTLE_ENDIAN 1234
 	#define __BYTE_ORDER __LITTLE_ENDIAN
 #endif
 
-/* Define default endianness */
+/* Fallback to custom constants. */
+#if !defined(__BIG_ENDIAN)
+	#define __BIG_ENDIAN 4321
+#endif
+
+#if !defined(__LITTLE_ENDIAN)
+	#define __LITTLE_ENDIAN 1234
+#endif
+
+/* Prefer compiler flag settings if given. */
+#if defined(MM_BIG_ENDIAN)
+	#undef __BYTE_ORDER /* Avoid redefined macro compiler warning. */
+	#define __BYTE_ORDER  __BIG_ENDIAN
+#elif defined(MM_LITTLE_ENDIAN)
+	#undef __BYTE_ORDER /* Avoid redefined macro compiler warning. */
+	#define __BYTE_ORDER __LITTLE_ENDIAN
+#endif
+
+/* Define default endian-ness. */
 #ifndef __LITTLE_ENDIAN
 	#define __LITTLE_ENDIAN 1234
 #endif /* __LITTLE_ENDIAN */
