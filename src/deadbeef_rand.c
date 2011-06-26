@@ -23,5 +23,5 @@ uint32_t generate_seed(void)
 {
 	  uint32_t t = (uint32_t)time(NULL);
 	  uint32_t c = (uint32_t)clock();
-	  return (t << 24) ^ (c << 11) ^ t ^ (uint32_t) &c;
+	  return (t << 24) ^ (c << 11) ^ t ^ (size_t) &c;
 }
