@@ -21,10 +21,10 @@ uint32_t deadbeef_rand(void);
 void deadbeef_srand(uint32_t x);
 
 /* Generates seed from the current time. */
-uint32_t generate_seed(void);
+uint32_t deadbeef_generate_seed(void);
 
 /* Seeds with the above function. */
-#define deadbeef_srand_time() deadbeef_srand(generate_seed())
+#define deadbeef_srand_time() deadbeef_srand(deadbeef_generate_seed())
 
 /* Returns random double in the range [a, b).
  * Taken directly from the rand() man page. */
