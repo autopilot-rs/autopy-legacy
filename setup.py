@@ -226,7 +226,7 @@ modules_names = [ext_modules.name for ext_modules in EXT_MODULES]
 create_package_dir(PACKAGE_NAME, PACKAGE_DESCRIPTION, modules_names)
 
 setup(name=PACKAGE_NAME,
-      version='0.51b',
+      version='0.51',
       author='Michael Sanders',
       author_email='michael+autopy [at] msanders [dot] com',
       url='http://autopy.org',
