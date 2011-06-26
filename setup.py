@@ -228,7 +228,7 @@ create_package_dir(PACKAGE_NAME, PACKAGE_DESCRIPTION, modules_names)
 setup(name=PACKAGE_NAME,
       version='0.51b',
       author='Michael Sanders',
-      author_email='msanders42+autopy [at] gmail [dot] com',
+      author_email='michael+autopy [at] msanders [dot] com',
       url='http://autopy.org',
       license='MIT',
       description='A simple, cross-platform GUI automation toolkit for Python.',
