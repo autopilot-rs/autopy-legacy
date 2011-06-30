@@ -105,7 +105,7 @@ The following is the full source for a "hello world" script in autopy. Running t
 
 ### Controlling the Mouse
 
-AutoPy includes a number of functions for controlling the mouse. For a full list, consult the [API Reference](http://autopy.org/documentation/api-reference/mouse.html). This short tutorial, however, only gives you a taste of two: `autopy.mouse.move()` and `autopy.mouse.smooth_move()`. These functions do exactly what they seem; for instance, to immediately "teleport" the mouse to the top left corner of the screen:
+AutoPy includes a number of functions for controlling the mouse. For a full list, consult the [API Reference](http://www.autopy.org/documentation/api-reference/mouse.html). This short tutorial, however, only gives you a taste of two: `autopy.mouse.move()` and `autopy.mouse.smooth_move()`. These functions do exactly what they seem; for instance, to immediately "teleport" the mouse to the top left corner of the screen:
 
 	>>> import autopy
 	>>> autopy.mouse.move(1, 1)
@@ -142,7 +142,7 @@ Even better, we could write our own function to move the mouse across the screen
 
 	sine_mouse_wave()
 
-<a href="http://autopy.org/documentation/sine-wave"><img src="https://github.com/msanders/autopy/raw/gh-pages/sine-move-mouse-thumbnail.jpg" alt="Demonstration video"/></a>
+<a href="http://www.autopy.org/documentation/sine-wave"><img src="https://github.com/msanders/autopy/raw/gh-pages/sine-move-mouse-thumbnail.jpg" alt="Demonstration video"/></a>
 
 Pretty cool, huh?
 
@@ -221,7 +221,7 @@ As I hope you can see, these functions are enormously useful and have a number o
 
 ## Closing & API Reference
 
-Hope you enjoy using autopy! For a more in depth overview, I've attempted to make the [API Reference](http://autopy.org/documentation/api-reference) as complete and approachable as possible.
+Hope you enjoy using autopy! For a more in depth overview, I've attempted to make the [API Reference](http://www.autopy.org/documentation/api-reference/) as complete and approachable as possible.
 
 <div id="autopy-license"></div>
 
