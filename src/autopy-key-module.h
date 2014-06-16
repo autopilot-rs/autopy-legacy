@@ -4,6 +4,10 @@
 
 #include <Python.h>
 
+#if PY_MAJOR_VERSION >= 3
+#define PYTHREE
+#endif
+
 /* Summary: autopy module for working with the keyboard */
 /* Description: This module contains various functions for controlling the
                 keyboard. */

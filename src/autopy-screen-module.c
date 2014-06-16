@@ -43,11 +43,29 @@ static PyMethodDef ScreenMethods[] = {
 	{NULL, NULL, 0, NULL} /* Sentinel */
 };
 
+#ifdef PYTHREE
+static struct PyModuleDef screenmodule = {
+    PyModuleDef_HEAD_INIT,
+    "screen",
+    "autopy module for working with the screen",
+    -1,
+    ScreenMethods
+};
+#endif
+
 PyMODINIT_FUNC initscreen(void)
 {
+#ifdef PYTHREE
+	return PyModule_Create(&screenmodule);
+#else
 	Py_InitModule3("screen", ScreenMethods, "autopy module for working with "
 	                                        "the screen");
+#endif
 }
+
+#ifdef PYTHREE
+PyMODINIT_FUNC PyInit_screen(void) { return initscreen(); }
+#endif
 
 static PyObject *screen_get_size(PyObject *self, PyObject *args)
 {

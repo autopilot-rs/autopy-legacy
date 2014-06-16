@@ -27,11 +27,30 @@ static PyMethodDef AlertMethods[] = {
 	{NULL, NULL, 0, NULL} /* Sentinel */
 };
 
+#ifdef PYTHREE
+static struct PyModuleDef alertmodule = {
+    PyModuleDef_HEAD_INIT,
+    "alert",
+    "autopy module for displaying alerts",
+    -1,
+    AlertMethods
+};
+#endif
+
 PyMODINIT_FUNC initalert(void)
 {
+#ifdef PYTHREE
+	PyObject *mod = PyModule_Create(&alertmodule);
+	return mod;
+#else
 	Py_InitModule3("alert", AlertMethods,
 	               "autopy module for displaying alerts");
+#endif
 }
+
+#ifdef PYTHREE
+PyMODINIT_FUNC PyInit_alert(void) { return initalert(); }
+#endif
 
 static PyObject *alert_alert(PyObject *self, PyObject *args, PyObject *kwds)
 {

@@ -58,11 +58,25 @@ static PyMethodDef MouseMethods[] = {
 	{NULL, NULL, 0, NULL} /* Sentinel */
 };
 
+#ifdef PYTHREE
+static struct PyModuleDef mousemodule = {
+    PyModuleDef_HEAD_INIT,
+    "mouse",
+    "autopy module for working with the mouse",
+    -1,
+    MouseMethods
+};
+#endif
+
 PyMODINIT_FUNC initmouse(void)
 {
-	PyObject *mod = Py_InitModule3("mouse", MouseMethods,
+	PyObject *mod;
+#ifdef PYTHREE
+	mod = PyModule_Create(&mousemodule);
+#else
+	mod = Py_InitModule3("mouse", MouseMethods,
 	                               "autopy module for working with the mouse");
-
+#endif
 	if (mod == NULL) return; /* Error */
 
 	/* Add mouse button constants for click_mouse(). */
@@ -74,7 +88,14 @@ PyMODINIT_FUNC initmouse(void)
 	}
 
 	deadbeef_srand_time();
+#ifdef PYTHREE
+	return mod;
+#endif
 }
+
+#ifdef PYTHREE
+PyMODINIT_FUNC PyInit_mouse(void) { return initmouse(); }
+#endif
 
 static PyObject *mouse_move(PyObject *self, PyObject *args)
 {

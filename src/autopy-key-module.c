@@ -56,11 +56,26 @@ static PyMethodDef KeyMethods[] = {
 	{NULL, NULL, 0, NULL} /* Sentinel */
 };
 
+#ifdef PYTHREE
+static struct PyModuleDef keymodule = {
+    PyModuleDef_HEAD_INIT,
+    "key",
+    "autopy module for working with the keyboard",
+    -1,
+    KeyMethods
+};
+#endif
+
 PyMODINIT_FUNC initkey(void)
 {
-	PyObject *mod = Py_InitModule3("key", KeyMethods,
+	PyObject *mod;
+#ifdef PYTHREE
+	mod = PyModule_Create(&keymodule);
+#else
+	mod = Py_InitModule3("key", KeyMethods,
 	                               "autopy module for working with the "
 	                               "keyboard");
+#endif
 	if (mod == NULL) return; /* Error */
 
 	/* Needed for type_string(). */
@@ -104,7 +119,14 @@ PyMODINIT_FUNC initkey(void)
 		PyErr_SetString(PyExc_ValueError, "Error adding keycode constants");
 		return;
 	}
+#ifdef PYTHREE
+	return mod;
+#endif
 }
+
+#ifdef PYTHREE
+PyMODINIT_FUNC PyInit_key(void) { return initkey(); }
+#endif
 
 /*  Attempts to extract MMKeyCode from PyInt. Returns false and sets error if
  *  MMKeyCode could not be converted, or returns true if it could. */
@@ -128,7 +150,7 @@ static PyObject *key_toggle(PyObject *self, PyObject *args)
 		MMKeyCode code;
 		if (!MMKeyCodeFromPyInt(key, &code)) return NULL;
 		toggleKeyCode(code, downBool == Py_True, flags);
-	} else if (PyString_Check(key)) { /* Check for single-character string */
+	} else if (PyUnicode_Check(key)) { /* Check for single-character string */
 		char c;
 		if (!charFromPyString(key, &c)) return NULL;
 		toggleKey(c, downBool == Py_True, flags);
@@ -150,7 +172,7 @@ static PyObject *key_tap(PyObject *self, PyObject *args)
 		MMKeyCode code;
 		if (!MMKeyCodeFromPyInt(key, &code)) return NULL;
 		tapKeyCode(code, flags);
-	} else if (PyString_Check(key)) { /* Check for single-character string */
+	} else if (PyUnicode_Check(key)) { /* Check for single-character string */
 		char c;
 		if (!charFromPyString(key, &c)) return NULL;
 		tapKey(c, flags);
@@ -183,12 +205,12 @@ static bool MMKeyCodeFromPyInt(PyObject *num, MMKeyCode *val)
 	long ival;
 	assert(val != NULL);
 
-	if (!PyInt_Check(num) || PyFloat_Check(num)) {
+	if (!PyLong_Check(num) || PyFloat_Check(num)) {
 		Py_SetConvertErr("integer<H>", num);
 		return false;
 	}
 
-	ival = PyInt_AsUnsignedLongMask(num);
+	ival = PyLong_AsLong(num);
 	if (ival == -1 && PyErr_Occurred()) {
 		Py_SetConvertErr("integer<H>", num);
 		return false;
@@ -198,6 +220,19 @@ static bool MMKeyCodeFromPyInt(PyObject *num, MMKeyCode *val)
 	return true;
 }
 
+#ifdef PYTHREE
+static bool charFromPyString(PyObject *str, char *val)
+{
+	assert(val != NULL);
+	if (PyUnicode_GetLength(str) != 1) {
+		Py_SetConvertErr("char", str);
+		return false;
+	} else {
+		*val = PyUnicode_AsUTF8(str)[0];
+		return true;
+	}
+}
+#else
 static bool charFromPyString(PyObject *str, char *val)
 {
 	assert(val != NULL);
@@ -205,7 +240,8 @@ static bool charFromPyString(PyObject *str, char *val)
 		Py_SetConvertErr("char", str);
 		return false;
 	} else {
-		*val = PyString_AS_STRING(str)[0];
+		*val = PyString_AsString(str)[0];
 		return true;
 	}
 }
+#endif

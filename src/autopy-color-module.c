@@ -29,11 +29,29 @@ static PyMethodDef ColorMethods[] = {
 	{NULL, NULL, 0, NULL} /* Sentinel */
 };
 
+#ifdef PYTHREE
+static struct PyModuleDef colormodule = {
+    PyModuleDef_HEAD_INIT,
+    "color",
+    "autopy module for converting between colour formats",
+    -1,
+	ColorMethods
+};
+#endif
+
 PyMODINIT_FUNC initcolor(void)
 {
+#ifdef PYTHREE
+	return PyModule_Create(&colormodule);
+#else
 	Py_InitModule3("color", ColorMethods,
 	               "autopy module for converting between color formats");
+#endif
 }
+
+#ifdef PYTHREE
+PyMODINIT_FUNC PyInit_color(void) { return initcolor(); }
+#endif
 
 static PyObject *color_hex_to_rgb(PyObject *self, PyObject *args)
 {

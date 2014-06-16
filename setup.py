@@ -1,11 +1,17 @@
 #!/usr/bin/env python
+
+from __future__ import print_function
+
 import os
 import platform
 import sys
 import textwrap
 
 from distutils.core import setup, Extension
-from commands import getoutput
+try:
+    from subprocess import getoutput
+except ImportError:
+    from commands import getoutput
 
 # Determine platform being used.
 system = platform.system()
@@ -47,7 +53,7 @@ def create_package_dir(package_name, docstring, module_names):
         f.close()
 
     if update_file:
-        print 'Updating __init__.py'
+        print('Updating __init__.py')
         f = open(init_path, 'w')
         f.write(file_contents)
         f.close()

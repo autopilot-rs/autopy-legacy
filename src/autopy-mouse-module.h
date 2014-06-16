@@ -4,6 +4,10 @@
 
 #include <Python.h>
 
+#if PY_MAJOR_VERSION >= 3
+#define PYTHREE
+#endif
+
 /* Summary: autopy module for working with the mouse */
 /* Description: This module contains functions for getting the current state of
                 and controlling the mouse cursor.

@@ -4,6 +4,10 @@
 
 #include <Python.h>
 
+#if PY_MAJOR_VERSION >= 3
+#define PYTHREE
+#endif
+
 /* Summary: autopy module for converting color formats */
 /* Description: This module provides routines for converting between the color
                 format (hexadecimal) used by autopy methods and other, more

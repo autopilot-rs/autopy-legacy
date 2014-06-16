@@ -17,7 +17,7 @@ static void Bitmap_dealloc(BitmapObject *self)
 		destroyMMBitmap(self->bitmap);
 		self->bitmap = NULL;
 	}
-	self->ob_type->tp_free((PyObject *)self);
+	((PyObject*)self)->ob_type->tp_free((PyObject *)self);
 }
 
 /* -- Bitmap Class method declarations -- */
@@ -235,8 +235,8 @@ static PyMethodDef Bitmap_methods[] = {
 
 /* Ridiculous monstrosity */
 PyTypeObject Bitmap_Type = {
-   PyObject_HEAD_INIT(NULL)
-   0,                             /* ob_size */
+   PyVarObject_HEAD_INIT(NULL, 0)
+   //0,                             /* ob_size */
    "Bitmap",                      /* tp_name */
    sizeof(BitmapObject),          /* tp_basicsize */
    0,                             /* tp_itemsize */
@@ -256,7 +256,7 @@ PyTypeObject Bitmap_Type = {
    0,                             /* tp_setattro */
    0,                             /* tp_as_buffer */
    Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE |
-   Py_TPFLAGS_HAVE_ITER,          /* tp_flags*/
+   /*Py_TPFLAGS_HAVE_ITER*/0,          /* tp_flags*/
    "Raw, uncompressed bitmap object", /* tp_doc */
    0,                             /* tp_traverse */
    0,                             /* tp_clear */
@@ -350,7 +350,7 @@ static bool rectFromTupleOrBitmap(MMBitmapRef bitmap,
 static PyObject *Bitmap_str(BitmapObject *self)
 {
 	if (!Bitmap_Ready(self)) return NULL;
-	return PyString_FromFormat("<Bitmap object at %p with resolution %lu%lu, "
+	return PyUnicode_FromFormat("<Bitmap object at %p with resolution %lu%lu, "
 	                           "%u bits per pixel, and %u bytes per pixel>",
 	                           self,
 	                           (unsigned long)self->bitmap->width,
@@ -497,7 +497,7 @@ static PyObject *Bitmap_to_string(BitmapObject *self, PyObject *args)
 		                      MMBitmapStringErrorString(err));
 		return NULL;
 	}
-	return PyString_FromString(buf);
+	return /*PyString_FromString*/PyUnicode_FromString(buf);
 }
 
 static PyObject *Bitmap_get_color(BitmapObject *self, PyObject *args)

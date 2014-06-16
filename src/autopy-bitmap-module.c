@@ -20,17 +20,40 @@ static PyMethodDef BitmapMethods[] = {
 	{NULL, NULL, 0, NULL} /* Sentinel */
 };
 
+#ifdef PYTHREE
+static struct PyModuleDef bitmapmodule = {
+    PyModuleDef_HEAD_INIT,
+    "bitmap",
+    "autopy module for working with bitmaps",
+    -1,
+    BitmapMethods
+};
+#endif
+
+
 PyMODINIT_FUNC initbitmap(void)
 {
-	PyObject *mod = Py_InitModule3("bitmap", BitmapMethods,
+	PyObject *mod;
+#ifdef PYTHREE
+	mod = PyModule_Create(&bitmapmodule);
+#else
+	mod = Py_InitModule3("bitmap", BitmapMethods,
 	                               "autopy module for working with bitmaps");
+#endif
 	if (mod == NULL) return; /* Error */
 
 	/* Instantiate new "Bitmap" class so that it is available in the module. */
 	if (Py_AddClassToModule(mod, &Bitmap_Type) < 0) {
 		return; /* Error */
 	}
+#ifdef PYTHREE
+	return mod;
+#endif
 }
+
+#ifdef PYTHREE
+PyMODINIT_FUNC PyInit_bitmap(void) { return initbitmap(); }
+#endif
 
 static PyObject *bitmap_capture_screen(PyObject *self, PyObject *arg)
 {
