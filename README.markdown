@@ -1,3 +1,7 @@
+[![PyPI version](https://pypip.in/version/autopy/badge.svg)](https://pypi.python.org/pypi/autopy/)
+[![PyPI downloads](https://pypip.in/status/autopy/badge.svg)](https://pypi.python.org/pypi/autopy/)
+[![PyPI status](https://pypip.in/download/autopy/badge.svg)](https://pypi.python.org/pypi/autopy/)
+
 AutoPy Introduction and Tutorial
 =================================
 
@@ -31,20 +35,7 @@ by Michael Sanders
 
 AutoPy is a simple, cross-platform GUI automation toolkit for Python. It includes functions for controlling the keyboard and mouse, finding colors and bitmaps on-screen, and displaying alerts -- all in a cross-platform, efficient, and simple manner.
 
-<div id="how-so"></div>
-
-### How so?
-
-* Portable
-	- Works on Mac OS X, Windows, and X11.
-* Efficient
-	- Written in pure ANSI C.
-* Simple
-	- AutoPy is designed as a _toolkit_, not a _framework_ -- it doesn't get in your way. At the same time, convenience functions are provided where useful.*
-* Easy
-	- AutoPy is designed to be simple and easy-to-understand, both for the end user and the implementor; that is, both the public API and the internals are straightforward and well-documented. It should be easy to pick up, and easy to modify if you need.
-
-\* (Note that this leaves the door wide open for frameworks built _off_ of AutoPy; for instance, a library could be written for a more specific task, such as automating a game, that uses AutoPy as its backbone. This allows framework writers to take advantage of all the above qualities while having the luxury of writing in Python.)
+Works on Mac OS X, Windows, and X11.
 
 <div id="autopy-getting-started"></div>
 
@@ -188,7 +179,7 @@ The filetype is either parsed automatically from the filename, or given as an op
 Loading a bitmap is done essentially the same way, only from a class method:
 
 	>>> import autopy
-	>>> autopy.bitmap.Bitmap.open('i-am-a-monkey-and-i-like-it.png')
+	>>> autopy.bitmap.Bitmap.open('i-am-a-monkey.png')
 	<Bitmap object at 0x1001d5378>
 
 Sometimes it is desirable to keep a short script free of any outside dependencies. In the case of bitmaps, this can be accomplished with the `to_string()` and `from_string()` methods:
@@ -204,18 +195,18 @@ This is not recommended for large bitmaps (a screenshot, for instance, is obviou
 Aside from analyzing a bitmap's pixel data, the main use for loading a bitmap is finding it on the screen or inside another bitmap. For example, the following prints the coordinates of the first monkey found in a barrel of monkeys (scanned from left to right, top to bottom):
 
 	import autopy
-	def where_is_the_monkey_i_say():
+	def where_is_the_monkey():
 		"""Look for the monkey. Tell me if you found it."""
 		monkey = autopy.bitmap.Bitmap.open('monkey.png')
 		barrel = autopy.bitmap.Bitmap.open('barrel.png')
 
 		pos = barrel.find_bitmap(monkey)
 		if pos:
-			print "We found him! He's at %s!" % str(pos)
+			print "We found him! He's here: %s" % str(pos)
 		else:
-			print "There is no monkey... what kind of barrel is this?!"
+			print "There is no monkey... what kind of barrel is this?"
 
-	where_is_the_monkey_i_say()
+	where_is_the_monkey()
 
 As I hope you can see, these functions are enormously useful and have a number of practical values.
 
@@ -261,3 +252,5 @@ Redistributions of source code (Markdown, plaintext, et. al.) must retain the ab
 Redistributions in compiled form (HTML, PDF and so on) must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
 
 THIS DOCUMENTATION IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/msanders/autopy/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
