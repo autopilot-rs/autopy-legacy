@@ -6,6 +6,7 @@
 #if defined(IS_MACOSX)
 	#include <OpenGL/OpenGL.h>
 	#include <ApplicationServices/ApplicationServices.h>
+	#include <OpenGL/gl.h>
 #elif defined(USE_X11)
 	#include <X11/Xlib.h>
 	#include <X11/Xutil.h>
