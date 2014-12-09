@@ -40,11 +40,11 @@ PyMODINIT_FUNC initbitmap(void)
 	mod = Py_InitModule3("bitmap", BitmapMethods,
 	                               "autopy module for working with bitmaps");
 #endif
-	if (mod == NULL) return; /* Error */
+	if (mod == NULL) return NULL; /* Error */
 
 	/* Instantiate new "Bitmap" class so that it is available in the module. */
 	if (Py_AddClassToModule(mod, &Bitmap_Type) < 0) {
-		return; /* Error */
+		return NULL; /* Error */
 	}
 #ifdef PYTHREE
 	return mod;
